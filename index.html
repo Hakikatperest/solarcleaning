@@ -26,16 +26,9 @@
     --shadow-sm: 0 2px 12px rgba(0,0,0,0.06);
     --shadow-md: 0 8px 32px rgba(0,0,0,0.09);
     --shadow-lg: 0 20px 60px rgba(0,0,0,0.10);
-    --shadow-orange: 0 8px 32px rgba(245,126,13,0.22);
     --radius: 16px;
     --radius-sm: 10px;
     --radius-lg: 24px;
-    /* Instagram gradient colors */
-    --ig-start: #f09433;
-    --ig-mid1: #e6683c;
-    --ig-mid2: #dc2743;
-    --ig-mid3: #cc2366;
-    --ig-end: #bc1888;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -54,7 +47,7 @@
   ::-webkit-scrollbar-track { background: var(--bg-alt); }
   ::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 3px; }
 
-  /* ── NAV ── */
+  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
     display: flex; align-items: center; justify-content: space-between;
@@ -65,17 +58,11 @@
     box-shadow: 0 2px 20px rgba(0,0,0,0.06);
     transition: height .3s, box-shadow .3s;
   }
-  nav.scrolled {
-    height: 60px;
-    box-shadow: 0 4px 28px rgba(0,0,0,0.09);
-  }
+  nav.scrolled { height: 60px; box-shadow: 0 4px 28px rgba(0,0,0,0.09); }
 
   .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
   .nav-logo img { height: 38px; object-fit: contain; }
-  .nav-logo-text {
-    font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: .06em;
-    color: var(--orange); display: none;
-  }
+  .nav-logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: .06em; color: var(--orange); display: none; }
 
   .nav-links { display: flex; gap: 20px; list-style: none; align-items: center; }
   .nav-links a {
@@ -90,19 +77,12 @@
   .nav-links a:hover { color: var(--orange); }
   .nav-links a:hover::after { right: 0; }
   .nav-cta {
-    background: var(--orange) !important;
-    color: #fff !important;
-    padding: 10px 22px; border-radius: 50px;
-    font-weight: 700 !important;
+    background: var(--orange) !important; color: #fff !important;
+    padding: 10px 22px; border-radius: 50px; font-weight: 700 !important;
     box-shadow: 0 4px 16px rgba(245,126,13,0.28);
     transition: background .2s, transform .2s, box-shadow .2s !important;
   }
-  .nav-cta:hover {
-    background: var(--orange-dark) !important;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 28px rgba(245,126,13,.38) !important;
-    color: #fff !important;
-  }
+  .nav-cta:hover { background: var(--orange-dark) !important; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(245,126,13,.38) !important; }
   .nav-cta::after { display: none !important; }
 
   .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
@@ -115,209 +95,71 @@
     .hamburger { display: flex; }
     .nav-links {
       position: fixed; top: 72px; left: 0; right: 0;
-      background: #fff;
-      flex-direction: column; align-items: flex-start;
+      background: #fff; flex-direction: column; align-items: flex-start;
       padding: 24px 28px 32px; gap: 18px;
       transform: translateY(-120%); opacity: 0;
       transition: transform .35s cubic-bezier(.4,0,.2,1), opacity .35s;
-      border-bottom: 1px solid var(--border);
-      box-shadow: 0 8px 32px rgba(0,0,0,.08);
+      border-bottom: 1px solid var(--border); box-shadow: 0 8px 32px rgba(0,0,0,.08);
     }
     .nav-links.open { transform: translateY(0); opacity: 1; }
     .nav-links a { font-size: 15px; }
   }
 
-  /* ── HERO ── */
-  .hero {
-    position: relative; min-height: 100vh;
-    display: flex; align-items: center; justify-content: center;
-    overflow: hidden; background: #fff8f0;
-  }
-  .hero-video {
-    position: absolute; inset: 0;
-    width: 100%; height: 100%; object-fit: cover; z-index: 0;
-    filter: brightness(.55) saturate(0.9);
-  }
-  .hero-overlay {
-    position: absolute; inset: 0; z-index: 1;
-    background: linear-gradient(
-      180deg,
-      rgba(255,255,255,0.15) 0%,
-      rgba(255,248,240,0.08) 40%,
-      rgba(255,244,230,0.30) 70%,
-      rgba(255,250,245,0.92) 100%
-    );
-  }
-
-  .sun-rays {
-    position: absolute; top: -10%; right: -5%; z-index: 1;
-    width: min(600px, 80vw); height: min(600px, 80vw);
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(245,126,13,0.09) 0%, transparent 70%);
-    animation: pulse-sun 8s ease-in-out infinite;
-  }
+  /* HERO */
+  .hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #fff8f0; }
+  .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; filter: brightness(.55) saturate(0.9); }
+  .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(255,248,240,0.08) 40%, rgba(255,244,230,0.30) 70%, rgba(255,250,245,0.92) 100%); }
+  .sun-rays { position: absolute; top: -10%; right: -5%; z-index: 1; width: min(600px,80vw); height: min(600px,80vw); border-radius: 50%; background: radial-gradient(circle, rgba(245,126,13,0.09) 0%, transparent 70%); animation: pulse-sun 8s ease-in-out infinite; }
   @keyframes pulse-sun { 0%,100%{transform:scale(1);opacity:.5} 50%{transform:scale(1.1);opacity:.9} }
 
-  .hero-content {
-    position: relative; z-index: 2; text-align: center;
-    padding: 100px clamp(16px, 6vw, 80px) 160px;
-    max-width: 900px; width: 100%;
-    animation: hero-in 1.1s cubic-bezier(.22,1,.36,1) both;
-  }
+  .hero-content { position: relative; z-index: 2; text-align: center; padding: 100px clamp(16px,6vw,80px) 160px; max-width: 900px; width: 100%; animation: hero-in 1.1s cubic-bezier(.22,1,.36,1) both; }
   @keyframes hero-in { from{opacity:0;transform:translateY(36px)} to{opacity:1;transform:translateY(0)} }
 
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(255,255,255,0.85); border: 1.5px solid rgba(245,126,13,0.3);
-    border-radius: 50px; padding: 7px 18px;
-    font-size: 11px; font-family: 'Space Mono', monospace;
-    color: var(--orange); letter-spacing: .1em; text-transform: uppercase;
-    margin-bottom: 24px; backdrop-filter: blur(8px);
-    animation: hero-in 1.1s .2s cubic-bezier(.22,1,.36,1) both;
-    box-shadow: 0 2px 12px rgba(245,126,13,0.12);
-  }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.85); border: 1.5px solid rgba(245,126,13,0.3); border-radius: 50px; padding: 7px 18px; font-size: 11px; font-family: 'Space Mono',monospace; color: var(--orange); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 24px; backdrop-filter: blur(8px); animation: hero-in 1.1s .2s cubic-bezier(.22,1,.36,1) both; box-shadow: 0 2px 12px rgba(245,126,13,0.12); }
   .hero-badge::before { content: '●'; color: #22c55e; animation: blink 1.5s infinite; }
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
 
-  .hero h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(52px, 11vw, 130px);
-    line-height: .92; letter-spacing: .02em;
-    color: #fff;
-    text-shadow: 0 2px 24px rgba(0,0,0,0.18);
-    margin-bottom: 20px;
-    animation: hero-in 1.1s .35s cubic-bezier(.22,1,.36,1) both;
-  }
+  .hero h1 { font-family: 'Bebas Neue',sans-serif; font-size: clamp(52px,11vw,130px); line-height: .92; letter-spacing: .02em; color: #fff; text-shadow: 0 2px 24px rgba(0,0,0,0.18); margin-bottom: 20px; animation: hero-in 1.1s .35s cubic-bezier(.22,1,.36,1) both; }
   .hero h1 em { font-style: normal; color: #ffb347; }
   .hero h1 span { display: block; }
-  .hero-sub {
-    font-size: clamp(14px, 2vw, 18px);
-    color: rgba(255,255,255,0.88);
-    max-width: 540px; margin: 0 auto 36px; line-height: 1.75;
-    animation: hero-in 1.1s .5s cubic-bezier(.22,1,.36,1) both;
-    text-shadow: 0 1px 8px rgba(0,0,0,0.12);
-  }
-  .hero-btns {
-    display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
-    animation: hero-in 1.1s .65s cubic-bezier(.22,1,.36,1) both;
-  }
+  .hero-sub { font-size: clamp(14px,2vw,18px); color: rgba(255,255,255,0.88); max-width: 540px; margin: 0 auto 36px; line-height: 1.75; animation: hero-in 1.1s .5s cubic-bezier(.22,1,.36,1) both; text-shadow: 0 1px 8px rgba(0,0,0,0.12); }
+  .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; animation: hero-in 1.1s .65s cubic-bezier(.22,1,.36,1) both; }
 
-  .btn-primary {
-    background: var(--orange);
-    color: #fff; border: none;
-    padding: 15px 32px; border-radius: 50px;
-    font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700;
-    cursor: pointer; text-decoration: none;
-    transition: background .2s, transform .2s, box-shadow .2s; display: inline-block;
-    box-shadow: 0 4px 20px rgba(245,126,13,0.35);
-  }
-  .btn-primary:hover {
-    background: var(--orange-dark);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 36px rgba(245,126,13,.42);
-  }
+  .btn-primary { background: var(--orange); color: #fff; border: none; padding: 15px 32px; border-radius: 50px; font-family: 'DM Sans',sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; text-decoration: none; transition: background .2s,transform .2s,box-shadow .2s; display: inline-block; box-shadow: 0 4px 20px rgba(245,126,13,0.35); }
+  .btn-primary:hover { background: var(--orange-dark); transform: translateY(-3px); box-shadow: 0 12px 36px rgba(245,126,13,.42); }
 
-  .btn-outline {
-    background: rgba(255,255,255,0.92); color: var(--text);
-    border: 1.5px solid rgba(255,255,255,0.7);
-    padding: 15px 32px; border-radius: 50px;
-    font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600;
-    cursor: pointer; text-decoration: none;
-    transition: background .2s, border-color .2s, transform .2s; display: inline-block;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  }
-  .btn-outline:hover {
-    background: #fff;
-    border-color: var(--orange);
-    color: var(--orange);
-    transform: translateY(-3px);
-  }
+  .btn-outline { background: rgba(255,255,255,0.92); color: var(--text); border: 1.5px solid rgba(255,255,255,0.7); padding: 15px 32px; border-radius: 50px; font-family: 'DM Sans',sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; text-decoration: none; transition: background .2s,border-color .2s,transform .2s; display: inline-block; backdrop-filter: blur(8px); box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+  .btn-outline:hover { background: #fff; border-color: var(--orange); color: var(--orange); transform: translateY(-3px); }
 
-  .hero-stats {
-    position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
-    display: flex; justify-content: center; align-items: stretch;
-    animation: hero-in 1.1s .8s cubic-bezier(.22,1,.36,1) both;
-  }
-  .hero-stats-inner {
-    background: #fff;
-    border-radius: 20px 20px 0 0;
-    display: flex; justify-content: center; align-items: center;
-    gap: 0;
-    padding: 0;
-    box-shadow: 0 -4px 32px rgba(0,0,0,0.08);
-    overflow: hidden;
-    max-width: 680px; width: 100%; margin: 0 auto;
-  }
-  .stat {
-    text-align: center; padding: 22px 32px; flex: 1;
-    border-right: 1px solid var(--border);
-  }
+  .hero-stats { position: absolute; bottom: 0; left: 0; right: 0; z-index: 2; display: flex; justify-content: center; align-items: stretch; animation: hero-in 1.1s .8s cubic-bezier(.22,1,.36,1) both; }
+  .hero-stats-inner { background: #fff; border-radius: 20px 20px 0 0; display: flex; justify-content: center; align-items: center; box-shadow: 0 -4px 32px rgba(0,0,0,0.08); overflow: hidden; max-width: 680px; width: 100%; margin: 0 auto; }
+  .stat { text-align: center; padding: 22px 32px; flex: 1; border-right: 1px solid var(--border); }
   .stat:last-child { border-right: none; }
-  .stat-num {
-    font-family: 'Bebas Neue', sans-serif; font-size: clamp(28px, 4vw, 44px); line-height: 1;
-    color: var(--orange);
-  }
+  .stat-num { font-family: 'Bebas Neue',sans-serif; font-size: clamp(28px,4vw,44px); line-height: 1; color: var(--orange); }
   .stat-label { font-size: 10px; color: var(--text-muted); letter-spacing: .1em; text-transform: uppercase; margin-top: 5px; font-weight: 600; }
+  @media(max-width:520px) { .hero-stats-inner { border-radius: 16px 16px 0 0; } .stat { padding: 16px 14px; } }
 
-  @media(max-width:520px) {
-    .hero-stats-inner { border-radius: 16px 16px 0 0; }
-    .stat { padding: 16px 14px; }
-  }
-
-  /* ── SHARED ── */
+  /* SHARED */
   section { position: relative; }
-  .container { max-width: 1180px; margin: 0 auto; padding: 0 clamp(16px, 5vw, 60px); }
-  .section-pad { padding: clamp(64px, 9vh, 120px) 0; }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 clamp(16px,5vw,60px); }
+  .section-pad { padding: clamp(64px,9vh,120px) 0; }
 
-  .section-tag {
-    font-family: 'Space Mono', monospace; font-size: 11px;
-    letter-spacing: .18em; text-transform: uppercase; color: var(--orange);
-    margin-bottom: 14px; display: inline-block;
-    background: var(--orange-light); border-radius: 50px;
-    padding: 5px 14px; border: 1px solid var(--border-orange);
-  }
-  .section-title {
-    font-family: 'Bebas Neue', sans-serif; font-size: clamp(36px, 5vw, 64px);
-    line-height: 1.02; letter-spacing: .02em; margin-bottom: 16px; color: var(--text);
-  }
+  .section-tag { font-family: 'Space Mono',monospace; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--orange); margin-bottom: 14px; display: inline-block; background: var(--orange-light); border-radius: 50px; padding: 5px 14px; border: 1px solid var(--border-orange); }
+  .section-title { font-family: 'Bebas Neue',sans-serif; font-size: clamp(36px,5vw,64px); line-height: 1.02; letter-spacing: .02em; margin-bottom: 16px; color: var(--text); }
   .section-title em { font-style: normal; color: var(--orange); }
-  .section-body {
-    font-size: clamp(15px, 1.6vw, 17px); line-height: 1.8;
-    color: var(--text-mid); max-width: 620px;
-  }
+  .section-body { font-size: clamp(15px,1.6vw,17px); line-height: 1.8; color: var(--text-mid); max-width: 620px; }
   .divider { width: 48px; height: 3px; background: var(--orange); border-radius: 2px; margin: 16px 0 28px; }
 
-  /* ── WHY ── */
-  .why-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 56px 64px; align-items: center; margin-top: 56px;
-  }
+  /* WHY */
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px 64px; align-items: center; margin-top: 56px; }
   @media(max-width:768px) { .why-grid { grid-template-columns: 1fr; gap: 40px; } }
 
-  .why-image-wrap {
-    position: relative; border-radius: var(--radius-lg); overflow: hidden;
-    box-shadow: var(--shadow-lg);
-  }
-  .why-image-wrap::before {
-    content: ''; position: absolute; inset: 0; z-index: 1;
-    background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.25) 100%);
-  }
-  .why-image-wrap img {
-    width: 100%; height: clamp(300px, 40vw, 440px);
-    object-fit: cover; display: block; transition: transform .7s cubic-bezier(.22,1,.36,1);
-  }
+  .why-image-wrap { position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
+  .why-image-wrap::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.25) 100%); }
+  .why-image-wrap img { width: 100%; height: clamp(300px,40vw,440px); object-fit: cover; display: block; transition: transform .7s cubic-bezier(.22,1,.36,1); }
   .why-image-wrap:hover img { transform: scale(1.04); }
-  .why-image-badge {
-    position: absolute; bottom: 20px; left: 20px; z-index: 2;
-    background: rgba(255,255,255,0.96); backdrop-filter: blur(12px);
-    border: 1px solid var(--border); border-radius: 14px;
-    padding: 14px 18px;
-    font-family: 'Space Mono', monospace;
-    font-size: 12px; color: var(--text-mid); line-height: 1.5;
-    box-shadow: var(--shadow-md);
-  }
-  .why-image-badge strong { display: block; font-size: 26px; color: var(--orange); font-family: 'Bebas Neue', sans-serif; letter-spacing: .03em; }
+  .why-image-badge { position: absolute; bottom: 20px; left: 20px; z-index: 2; background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 14px; padding: 14px 18px; font-family: 'Space Mono',monospace; font-size: 12px; color: var(--text-mid); line-height: 1.5; box-shadow: var(--shadow-md); }
+  .why-image-badge strong { display: block; font-size: 26px; color: var(--orange); font-family: 'Bebas Neue',sans-serif; letter-spacing: .03em; }
 
   .perf-bar-wrap { margin-top: 36px; }
   .perf-row { margin-bottom: 20px; }
@@ -326,459 +168,236 @@
   .perf-track { height: 8px; border-radius: 50px; background: var(--bg-alt); overflow: hidden; border: 1px solid var(--border); }
   .perf-fill { height: 100%; border-radius: 50px; background: var(--orange); width: 0; transition: width 1.4s cubic-bezier(.22,1,.36,1); }
 
-  .chips { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 28px; }
+  /* COLORED CHIPS */
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
   .chip {
-    display: inline-flex; align-items: center; gap: 5px;
-    background: #fff; border: 1.5px solid var(--border-orange);
-    border-radius: 50px; padding: 7px 15px; font-size: 12px;
-    color: var(--text-mid); font-weight: 600;
-    box-shadow: 0 1px 6px rgba(245,126,13,0.07);
-    transition: border-color .2s, background .2s, transform .2s;
+    display: inline-flex; align-items: center; gap: 7px;
+    border-radius: 50px; padding: 9px 18px; font-size: 12px; font-weight: 700;
+    transition: transform .2s, box-shadow .2s; cursor: default;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
   }
-  .chip:hover { border-color: var(--orange); background: var(--orange-light); transform: translateY(-2px); }
+  .chip:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,0.13); }
+  .chip-green  { background: linear-gradient(135deg,#d1fae5,#a7f3d0); color: #065f46; border: 1px solid #6ee7b7; }
+  .chip-blue   { background: linear-gradient(135deg,#dbeafe,#bfdbfe); color: #1e40af; border: 1px solid #93c5fd; }
+  .chip-red    { background: linear-gradient(135deg,#fee2e2,#fecaca); color: #991b1b; border: 1px solid #f87171; }
+  .chip-orange { background: linear-gradient(135deg,#fff4e6,#ffe0b2); color: #7c3500; border: 1px solid #fdba74; }
 
-  /* ── RAIN ── */
+  /* RAIN */
   .rain-section { background: var(--bg-alt); }
-  .rain-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
-    gap: 18px; margin-top: 52px;
-  }
+  .rain-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,220px),1fr)); gap: 18px; margin-top: 52px; }
+
   .rain-card {
-    background: var(--white); border: 1px solid var(--border);
     border-radius: var(--radius); padding: 26px 22px;
     position: relative; overflow: hidden;
-    transition: border-color .25s, transform .3s, box-shadow .3s;
-    box-shadow: var(--shadow-sm);
+    transition: transform .3s, box-shadow .3s;
   }
   .rain-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    background: var(--orange);
-    transform: scaleX(0); transform-origin: left; transition: transform .4s;
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
     border-radius: 2px 2px 0 0;
+    transform: scaleX(0); transform-origin: left; transition: transform .4s;
   }
-  .rain-card:hover {
-    border-color: var(--border-orange);
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-md);
-  }
+  .rain-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
   .rain-card:hover::before { transform: scaleX(1); }
   .rain-icon { font-size: 32px; margin-bottom: 14px; }
-  .rain-card h4 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
-  .rain-card p { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+  .rain-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+  .rain-card p { font-size: 13px; line-height: 1.7; }
 
-  /* ── HOTSPOT ── */
+  .rain-card-1 { background: linear-gradient(135deg,#eff6ff,#dbeafe); border: 1px solid #bfdbfe; box-shadow: 0 2px 10px rgba(59,130,246,0.08); }
+  .rain-card-1::before { background: #3b82f6; }
+  .rain-card-1 h4 { color: #1e3a8a; }
+  .rain-card-1 p  { color: #3b5080; }
+
+  .rain-card-2 { background: linear-gradient(135deg,#fff5f5,#fee2e2); border: 1px solid #fca5a5; box-shadow: 0 2px 10px rgba(239,68,68,0.08); }
+  .rain-card-2::before { background: #ef4444; }
+  .rain-card-2 h4 { color: #7f1d1d; }
+  .rain-card-2 p  { color: #6b3030; }
+
+  .rain-card-3 { background: linear-gradient(135deg,#f5f3ff,#ede9fe); border: 1px solid #c4b5fd; box-shadow: 0 2px 10px rgba(139,92,246,0.08); }
+  .rain-card-3::before { background: #8b5cf6; }
+  .rain-card-3 h4 { color: #4c1d95; }
+  .rain-card-3 p  { color: #5b3e7d; }
+
+  .rain-card-4 { background: linear-gradient(135deg,#f0fdfa,#ccfbf1); border: 1px solid #99f6e4; box-shadow: 0 2px 10px rgba(20,184,166,0.08); }
+  .rain-card-4::before { background: #14b8a6; }
+  .rain-card-4 h4 { color: #134e4a; }
+  .rain-card-4 p  { color: #2d6460; }
+
+  .rain-card-5 { background: linear-gradient(135deg,#fff7ed,#ffedd5); border: 1px solid #fdba74; box-shadow: 0 2px 10px rgba(245,126,13,0.10); }
+  .rain-card-5::before { background: var(--orange); }
+  .rain-card-5 h4 { color: #7c2d12; }
+  .rain-card-5 p  { color: #6b3a1f; }
+
+  .rain-card-6 { background: linear-gradient(135deg,#fff4e6,#ffe0b2); border: 1px solid var(--border-orange); box-shadow: 0 2px 10px rgba(245,126,13,0.12); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
+  .rain-card-6::before { background: var(--orange-dark); }
+
+  /* HOTSPOT */
   .hotspot-section { background: var(--bg); }
-  .hotspot-wrap {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 60px; align-items: center; margin-top: 56px;
-  }
+  .hotspot-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-top: 56px; }
   @media(max-width:768px) { .hotspot-wrap { grid-template-columns: 1fr; gap: 40px; } }
 
-  .hotspot-visual {
-    position: relative; border-radius: var(--radius-lg); overflow: hidden;
-    aspect-ratio: 4/3; box-shadow: var(--shadow-lg);
-  }
+  .hotspot-visual { position: relative; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4/3; box-shadow: var(--shadow-lg); }
   .hotspot-visual img { width: 100%; height: 100%; object-fit: cover; }
-  .hotspot-visual::after {
-    content: ''; position: absolute; inset: 0;
-    background: radial-gradient(circle at 60% 40%, rgba(245,80,30,.22), transparent 60%);
-    pointer-events: none;
-  }
-  .hotspot-label {
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 2;
-  }
-  .hotspot-pulse {
-    width: 62px; height: 62px; border-radius: 50%;
-    background: rgba(239,68,68,0.85); display: flex; align-items: center; justify-content: center;
-    font-size: 24px; animation: hpulse 2s infinite;
-    box-shadow: 0 4px 20px rgba(239,68,68,0.4);
-  }
-  @keyframes hpulse {
-    0%{box-shadow:0 0 0 0 rgba(239,68,68,.6), 0 4px 20px rgba(239,68,68,0.4)}
-    70%{box-shadow:0 0 0 26px rgba(239,68,68,0), 0 4px 20px rgba(239,68,68,0.4)}
-    100%{box-shadow:0 0 0 0 rgba(239,68,68,0), 0 4px 20px rgba(239,68,68,0.4)}
-  }
-  .hcard {
-    background: var(--white); border: 1px solid var(--border);
-    border-left: 4px solid var(--orange);
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    padding: 18px 20px; margin-bottom: 14px;
-    box-shadow: var(--shadow-sm);
-    transition: transform .25s, box-shadow .25s;
-  }
+  .hotspot-visual::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 60% 40%, rgba(245,80,30,.22), transparent 60%); pointer-events: none; }
+  .hotspot-label { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 2; }
+  .hotspot-pulse { width: 62px; height: 62px; border-radius: 50%; background: rgba(239,68,68,0.85); display: flex; align-items: center; justify-content: center; font-size: 24px; animation: hpulse 2s infinite; box-shadow: 0 4px 20px rgba(239,68,68,0.4); }
+  @keyframes hpulse { 0%{box-shadow:0 0 0 0 rgba(239,68,68,.6),0 4px 20px rgba(239,68,68,0.4)} 70%{box-shadow:0 0 0 26px rgba(239,68,68,0),0 4px 20px rgba(239,68,68,0.4)} 100%{box-shadow:0 0 0 0 rgba(239,68,68,0),0 4px 20px rgba(239,68,68,0.4)} }
+
+  .hcard { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--orange); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 18px 20px; margin-bottom: 14px; box-shadow: var(--shadow-sm); transition: transform .25s, box-shadow .25s; }
   .hcard:hover { transform: translateX(4px); box-shadow: var(--shadow-md); }
   .hcard:nth-child(2) { border-left-color: #3b82f6; }
   .hcard:nth-child(3) { border-left-color: #ef4444; }
   .hcard h4 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 7px; }
   .hcard p { font-size: 13px; color: var(--text-muted); line-height: 1.65; }
 
-  /* ── FREQUENCY ── */
+  /* FREQUENCY */
   .freq-section { background: var(--bg-warm); }
-
-  .freq-inner {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 64px; margin-top: 56px; align-items: start;
-  }
+  .freq-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 56px; align-items: start; }
   @media(max-width:768px) { .freq-inner { grid-template-columns: 1fr; gap: 44px; } }
 
-  .freq-sub-title {
-    font-family: 'Bebas Neue', sans-serif; font-size: 26px;
-    color: var(--text); letter-spacing: .04em; margin-bottom: 28px;
-  }
+  .freq-sub-title { font-family: 'Bebas Neue',sans-serif; font-size: 26px; color: var(--text); letter-spacing: .04em; margin-bottom: 28px; }
   .freq-sub-title em { font-style: normal; color: var(--orange); }
 
   .freq-timeline { position: relative; display: flex; flex-direction: column; }
-  .freq-timeline::before {
-    content: ''; position: absolute; left: 28px; top: 0; bottom: 36px; width: 2px;
-    background: linear-gradient(180deg, var(--orange), #ffb347, #22c55e);
-    opacity: 0.35;
-  }
+  .freq-timeline::before { content: ''; position: absolute; left: 28px; top: 0; bottom: 36px; width: 2px; background: linear-gradient(180deg,var(--orange),#ffb347,#22c55e); opacity: 0.35; }
   .timeline-item { display: flex; gap: 22px; align-items: flex-start; padding-bottom: 32px; }
-  .timeline-dot {
-    width: 56px; height: 56px; min-width: 56px; border-radius: 50%;
-    background: var(--orange);
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Bebas Neue', sans-serif; font-size: 22px;
-    color: #fff; position: relative; z-index: 1;
-    border: 3px solid var(--white);
-    box-shadow: 0 4px 16px rgba(245,126,13,0.28);
-  }
+  .timeline-dot { width: 56px; height: 56px; min-width: 56px; border-radius: 50%; background: var(--orange); display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue',sans-serif; font-size: 22px; color: #fff; position: relative; z-index: 1; border: 3px solid var(--white); box-shadow: 0 4px 16px rgba(245,126,13,0.28); }
   .timeline-item:nth-child(2) .timeline-dot { background: #3b82f6; box-shadow: 0 4px 16px rgba(59,130,246,0.28); }
   .timeline-item:nth-child(3) .timeline-dot { background: #22c55e; box-shadow: 0 4px 16px rgba(34,197,94,0.28); }
   .timeline-content { padding-top: 12px; }
   .timeline-content h4 { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 7px; }
   .timeline-content p { font-size: 13px; color: var(--text-muted); line-height: 1.75; }
 
-  .freq-factors {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px;
-  }
-  .factor-card {
-    background: var(--white); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 20px 16px; text-align: center;
-    transition: transform .25s, box-shadow .25s, border-color .25s;
-    box-shadow: var(--shadow-sm);
-  }
+  .freq-factors { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px; }
+  .factor-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 16px; text-align: center; transition: transform .25s,box-shadow .25s,border-color .25s; box-shadow: var(--shadow-sm); }
   .factor-card:hover { transform: translateY(-5px); border-color: var(--border-orange); box-shadow: var(--shadow-md); }
   .factor-icon { font-size: 36px; margin-bottom: 10px; }
   .factor-card h5 { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 5px; }
   .factor-card p { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+  .freq-img { width: 100%; border-radius: var(--radius); object-fit: cover; height: clamp(160px,20vw,220px); border: 1px solid var(--border); display: block; box-shadow: var(--shadow-sm); }
 
-  .freq-img {
-    width: 100%; border-radius: var(--radius); object-fit: cover;
-    height: clamp(160px, 20vw, 220px);
-    border: 1px solid var(--border); display: block;
-    box-shadow: var(--shadow-sm);
-  }
-
-  /* ── REVIEWS ── */
-  .reviews-section { background: var(--bg); }
-  .reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-    gap: 20px; margin-top: 52px;
-  }
-  .review-card {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 26px 24px;
-    position: relative;
-    box-shadow: var(--shadow-sm);
-    transition: transform .3s, box-shadow .3s, border-color .3s;
-    display: flex; flex-direction: column; gap: 14px;
-  }
-  .review-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--border-orange);
-  }
-  .review-header { display: flex; align-items: center; gap: 12px; }
-  .review-avatar {
-    width: 46px; height: 46px; min-width: 46px; border-radius: 50%;
-    background: var(--orange-light);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 20px; font-weight: 700;
-    color: var(--orange);
-    border: 2px solid var(--border-orange);
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: .04em;
-  }
-  .review-meta h5 { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 3px; }
-  .review-meta span { font-size: 11px; color: var(--text-muted); font-family: 'Space Mono', monospace; }
-  .review-stars { color: #f59e0b; font-size: 15px; letter-spacing: 2px; }
-  .review-text { font-size: 14px; color: var(--text-mid); line-height: 1.75; flex: 1; }
-  .review-google {
-    display: flex; align-items: center; gap: 6px;
-    font-size: 11px; color: var(--text-muted); font-family: 'Space Mono', monospace;
-    margin-top: 4px;
-  }
-  .review-google svg { flex-shrink: 0; }
-  .reviews-overall {
-    display: flex; align-items: center; gap: 18px;
-    background: var(--orange-light); border: 1px solid var(--border-orange);
-    border-radius: var(--radius); padding: 20px 28px;
-    margin-bottom: 40px; flex-wrap: wrap;
-  }
-  .reviews-score {
-    font-family: 'Bebas Neue', sans-serif; font-size: 56px; line-height: 1;
-    color: var(--orange);
-  }
+  /* REVIEWS */
+  .reviews-section { background: var(--bg-alt); }
+  .reviews-overall { display: flex; align-items: center; gap: 18px; background: linear-gradient(135deg,#fff4e6,#fff8f0); border: 1px solid var(--border-orange); border-radius: var(--radius); padding: 20px 28px; margin-bottom: 36px; flex-wrap: wrap; box-shadow: var(--shadow-sm); }
+  .reviews-score { font-family: 'Bebas Neue',sans-serif; font-size: 56px; line-height: 1; color: var(--orange); }
   .reviews-score-detail { display: flex; flex-direction: column; gap: 4px; }
   .reviews-score-detail .stars { font-size: 22px; color: #f59e0b; letter-spacing: 2px; }
   .reviews-score-detail span { font-size: 12px; color: var(--text-muted); font-weight: 600; }
+  .google-badge { margin-left: auto; display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-muted); font-weight: 600; }
 
-  /* ── CTA ── */
-  .cta-section {
-    background: var(--orange);
-    position: relative; overflow: hidden;
-  }
-  .cta-section::before {
-    content: ''; position: absolute; inset: 0;
-    background:
-      radial-gradient(circle at 20% 50%, rgba(255,255,255,0.10) 0%, transparent 50%),
-      radial-gradient(circle at 80% 50%, rgba(0,0,0,0.06) 0%, transparent 50%);
-  }
-  .cta-section::after {
-    content: ''; position: absolute; inset: 0;
-    background-image: radial-gradient(circle, rgba(255,255,255,0.14) 1px, transparent 1px);
-    background-size: 28px 28px;
-    pointer-events: none;
-  }
-  .cta-inner {
-    position: relative; z-index: 1; text-align: center;
-    padding: clamp(60px,8vh,110px) clamp(16px,5vw,60px);
-  }
-  .cta-inner .section-tag {
-    background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.3);
-    color: #fff; margin-bottom: 16px;
-  }
-  .cta-inner .section-title {
-    color: #fff; font-size: clamp(40px,6vw,80px);
-  }
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,300px),1fr)); gap: 20px; }
+  .review-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow-sm); transition: transform .3s,box-shadow .3s,border-color .3s; display: flex; flex-direction: column; gap: 12px; }
+  .review-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--border-orange); }
+  .review-header { display: flex; align-items: center; gap: 12px; }
+  .review-avatar { width: 46px; height: 46px; min-width: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue',sans-serif; font-size: 18px; font-weight: 700; }
+  .review-meta h5 { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+  .review-meta span { font-size: 11px; color: var(--text-muted); font-family: 'Space Mono',monospace; }
+  .review-stars { color: #f59e0b; font-size: 14px; letter-spacing: 2px; }
+  .review-text { font-size: 13.5px; color: var(--text-mid); line-height: 1.75; flex: 1; }
+  .review-google { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text-muted); font-family: 'Space Mono',monospace; padding-top: 10px; border-top: 1px solid var(--border); margin-top: 2px; }
+
+  /* CTA */
+  .cta-section { background: var(--orange); position: relative; overflow: hidden; }
+  .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 20% 50%,rgba(255,255,255,0.10) 0%,transparent 50%),radial-gradient(circle at 80% 50%,rgba(0,0,0,0.06) 0%,transparent 50%); }
+  .cta-section::after { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle,rgba(255,255,255,0.14) 1px,transparent 1px); background-size: 28px 28px; pointer-events: none; }
+  .cta-inner { position: relative; z-index: 1; text-align: center; padding: clamp(60px,8vh,110px) clamp(16px,5vw,60px); }
+  .cta-inner .section-tag { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.3); color: #fff; margin-bottom: 16px; }
+  .cta-inner .section-title { color: #fff; font-size: clamp(40px,6vw,80px); }
   .cta-inner .section-title em { color: #ffecb3; }
-  .cta-inner > p {
-    font-size: clamp(14px,1.8vw,18px); color: rgba(255,255,255,0.85);
-    max-width: 520px; margin: 18px auto 40px; line-height: 1.78;
-  }
-  .btn-white {
-    background: #fff; color: var(--orange);
-    border: none; padding: 15px 34px; border-radius: 50px;
-    font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700;
-    cursor: pointer; text-decoration: none; display: inline-block;
-    transition: transform .2s, box-shadow .2s;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-  }
+  .cta-inner > p { font-size: clamp(14px,1.8vw,18px); color: rgba(255,255,255,0.85); max-width: 520px; margin: 18px auto 40px; line-height: 1.78; }
+
+  .btn-white { background: #fff; color: var(--orange); border: none; padding: 15px 34px; border-radius: 50px; font-family: 'DM Sans',sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; transition: transform .2s,box-shadow .2s; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
   .btn-white:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(0,0,0,0.18); }
-  .btn-outline-white {
-    background: transparent; color: #fff;
-    border: 2px solid rgba(255,255,255,0.6);
-    padding: 15px 34px; border-radius: 50px;
-    font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 600;
-    cursor: pointer; text-decoration: none; display: inline-block;
-    transition: background .2s, border-color .2s, transform .2s;
-  }
+  .btn-outline-white { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.6); padding: 15px 34px; border-radius: 50px; font-family: 'DM Sans',sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; transition: background .2s,border-color .2s,transform .2s; }
   .btn-outline-white:hover { background: rgba(255,255,255,0.12); border-color: #fff; transform: translateY(-3px); }
 
-  /* ── CONTACT ── */
+  /* CONTACT */
   .contact-section { background: var(--bg-alt); }
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 52px; }
   @media(max-width:768px) { .contact-grid { grid-template-columns: 1fr; gap: 40px; } }
 
   .contact-info { display: flex; flex-direction: column; gap: 22px; }
   .contact-item { display: flex; align-items: flex-start; gap: 14px; }
-  .contact-icon {
-    width: 48px; height: 48px; min-width: 48px; border-radius: 14px;
-    background: var(--orange-light); border: 1.5px solid var(--border-orange);
-    display: flex; align-items: center; justify-content: center; font-size: 20px;
-    box-shadow: 0 2px 10px rgba(245,126,13,0.10);
-  }
-  .contact-detail h5 {
-    font-size: 10px; font-weight: 700; color: var(--orange); letter-spacing: .14em;
-    text-transform: uppercase; margin-bottom: 5px;
-    font-family: 'Space Mono', monospace;
-  }
-  .contact-detail p, .contact-detail a {
-    font-size: 15px; color: var(--text); text-decoration: none; line-height: 1.65;
-    font-weight: 500; transition: color .2s;
-  }
+  .contact-icon { width: 48px; height: 48px; min-width: 48px; border-radius: 14px; background: var(--orange-light); border: 1.5px solid var(--border-orange); display: flex; align-items: center; justify-content: center; font-size: 20px; box-shadow: 0 2px 10px rgba(245,126,13,0.10); }
+  .contact-detail h5 { font-size: 10px; font-weight: 700; color: var(--orange); letter-spacing: .14em; text-transform: uppercase; margin-bottom: 5px; font-family: 'Space Mono',monospace; }
+  .contact-detail p, .contact-detail a { font-size: 15px; color: var(--text); text-decoration: none; line-height: 1.65; font-weight: 500; transition: color .2s; }
   .contact-detail a:hover { color: var(--orange); }
 
   .social-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
-  .social-btn {
-    display: inline-flex; align-items: center; gap: 7px;
-    background: var(--white); border: 1.5px solid var(--border);
-    border-radius: 50px; padding: 10px 18px;
-    color: var(--text-mid); text-decoration: none; font-size: 13px; font-weight: 600;
-    transition: background .2s, border-color .2s, transform .2s, color .2s;
-    box-shadow: var(--shadow-sm); white-space: nowrap;
-  }
-  .social-btn:hover {
-    background: var(--orange-light); border-color: var(--orange);
-    color: var(--orange); transform: translateY(-2px);
-  }
+  .social-btn { display: inline-flex; align-items: center; gap: 7px; background: var(--white); border: 1.5px solid var(--border); border-radius: 50px; padding: 10px 18px; color: var(--text-mid); text-decoration: none; font-size: 13px; font-weight: 600; transition: background .2s,border-color .2s,transform .2s,color .2s; box-shadow: var(--shadow-sm); white-space: nowrap; }
+  .social-btn:hover { background: var(--orange-light); border-color: var(--orange); color: var(--orange); transform: translateY(-2px); }
 
-  /* ── Instagram button special styling ── */
-  .social-btn-instagram {
-    background: var(--white);
-    border: 1.5px solid #e1306c;
-    color: #c13584;
-    position: relative;
-    overflow: hidden;
-    transition: transform .2s, box-shadow .2s, color .2s, border-color .2s, background .2s;
-  }
-  .social-btn-instagram .ig-icon {
-    background: linear-gradient(45deg, var(--ig-start), var(--ig-mid1), var(--ig-mid2), var(--ig-mid3), var(--ig-end));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    display: flex; align-items: center;
-  }
-  .social-btn-instagram .ig-icon svg { /* SVG doesn't support gradient text directly — use a wrapper */ }
-  .social-btn-instagram:hover {
-    background: linear-gradient(45deg, var(--ig-start), var(--ig-mid1), var(--ig-mid2), var(--ig-mid3), var(--ig-end));
-    border-color: transparent;
-    color: #fff;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(193,53,132,0.35);
-  }
-  .social-btn-instagram:hover .ig-label { color: #fff; }
-  .social-btn-instagram:hover .ig-icon-wrap svg { stroke: #fff; }
-  .ig-icon-wrap {
-    display: flex; align-items: center;
-  }
-  .ig-icon-wrap svg {
-    stroke: url(#ig-gradient);
-    transition: stroke .2s;
-  }
-  .ig-label {
-    background: linear-gradient(45deg, var(--ig-start), var(--ig-mid1), var(--ig-mid2), var(--ig-mid3), var(--ig-end));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-weight: 600;
-    transition: background .2s;
-  }
-  .social-btn-instagram:hover .ig-label {
-    background: none;
-    -webkit-text-fill-color: #fff;
-    color: #fff;
-  }
+  /* Instagram gradient button */
+  .social-btn-ig { border-color: #e1306c; }
+  .ig-svg { stroke: url(#ig-grad); transition: stroke .2s; }
+  .ig-label { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; transition: all .2s; }
+  .social-btn-ig:hover { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888) !important; border-color: transparent !important; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(193,53,132,0.32); }
+  .social-btn-ig:hover .ig-label { background: none; -webkit-text-fill-color: #fff; }
+  .social-btn-ig:hover .ig-svg { stroke: #fff; }
 
-  .map-wrap {
-    border-radius: var(--radius-lg); overflow: hidden;
-    border: 1px solid var(--border); height: 100%; min-height: 340px;
-    box-shadow: var(--shadow-md);
-  }
+  .map-wrap { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border); height: 100%; min-height: 340px; box-shadow: var(--shadow-md); }
   .map-wrap iframe { width: 100%; height: 100%; min-height: 340px; border: 0; }
 
-  /* ── FOOTER ── */
-  footer {
-    background: #fefefe;
-    border-top: 1px solid var(--border);
-    padding: 32px clamp(16px,5vw,60px);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-  .footer-logo-text { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: .05em; color: var(--orange); display: none; }
+  /* FOOTER */
+  footer { background: #fefefe; border-top: 1px solid var(--border); padding: 32px clamp(16px,5vw,60px); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  .footer-logo img { height: 34px; object-fit: contain; }
+  .footer-logo-text { font-family: 'Bebas Neue',sans-serif; font-size: 18px; letter-spacing: .05em; color: var(--orange); display: none; }
   .footer-copy { font-size: 12px; color: var(--text); text-align: center; line-height: 1.8; }
   .footer-copy a { color: var(--orange); text-decoration: none; }
   .footer-copy a:hover { text-decoration: underline; }
   .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
   .footer-links a { font-size: 12px; color: var(--text-mid); text-decoration: none; transition: color .2s; }
   .footer-links a:hover { color: var(--orange); }
-  @media(max-width:600px) {
-    footer { flex-direction: column; align-items: center; text-align: center; }
-    .footer-links { justify-content: center; }
-  }
-  .footer-logo img { height: 34px; object-fit: contain; }
+  @media(max-width:600px) { footer { flex-direction: column; align-items: center; text-align: center; } .footer-links { justify-content: center; } }
 
-  /* ── Developer credit bar ── */
-  .dev-credit {
-    background: var(--bg-alt);
-    border-top: 1px solid var(--border);
-    padding: 12px clamp(16px,5vw,60px);
-    text-align: center;
-    font-size: 12px;
-    color: var(--text-muted);
-    font-family: 'Space Mono', monospace;
-    letter-spacing: .04em;
-  }
-  .dev-credit a {
-    color: var(--orange);
-    text-decoration: none;
-    font-weight: 700;
-    transition: color .2s;
-  }
+  /* DEV CREDIT */
+  .dev-credit { background: #f1f3f5; border-top: 1px solid var(--border); padding: 13px clamp(16px,5vw,60px); text-align: center; font-size: 12px; color: var(--text-muted); font-family: 'Space Mono',monospace; letter-spacing: .04em; }
+  .dev-credit a { color: var(--orange); text-decoration: none; font-weight: 700; transition: color .2s; }
   .dev-credit a:hover { color: var(--orange-dark); text-decoration: underline; }
 
-  /* ── FLOAT BUTTONS ── */
-  .float-btns {
-    position: fixed; bottom: 24px; right: 20px; z-index: 999;
-    display: flex; flex-direction: column; gap: 10px; align-items: center;
-  }
-  .float-btn {
-    width: 52px; height: 52px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 20px; cursor: pointer; text-decoration: none; border: none;
-    transition: transform .25s, box-shadow .25s;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.18);
-  }
+  /* FLOAT */
+  .float-btns { position: fixed; bottom: 24px; right: 20px; z-index: 999; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+  .float-btn { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; cursor: pointer; text-decoration: none; border: none; transition: transform .25s,box-shadow .25s; box-shadow: 0 4px 18px rgba(0,0,0,0.18); }
   .float-btn:hover { transform: scale(1.10); }
-  .float-wa { background: linear-gradient(135deg, #25D366, #128C7E); }
+  .float-wa { background: linear-gradient(135deg,#25D366,#128C7E); }
   .float-wa:hover { box-shadow: 0 8px 28px rgba(37,211,102,.45); }
-  .float-call { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+  .float-call { background: linear-gradient(135deg,#3b82f6,#2563eb); }
   .float-call:hover { box-shadow: 0 8px 28px rgba(59,130,246,0.45); }
 
-  /* ── REVEAL ANIMATIONS ── */
-  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1); }
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1); }
   .reveal.visible { opacity: 1; transform: translateY(0); }
   .reveal-d1 { transition-delay: .08s; }
   .reveal-d2 { transition-delay: .16s; }
   .reveal-d3 { transition-delay: .24s; }
   .reveal-d4 { transition-delay: .32s; }
 
-  /* ── TRUST BAR ── */
-  .trust-bar {
-    background: var(--white);
-    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-    padding: 18px 0;
-  }
-  .trust-inner {
-    display: flex; justify-content: center; align-items: center;
-    gap: clamp(20px, 4vw, 60px); flex-wrap: wrap;
-    padding: 0 clamp(16px, 5vw, 60px); max-width: 1180px; margin: 0 auto;
-  }
-  .trust-item {
-    display: flex; align-items: center; gap: 9px;
-    font-size: 13px; font-weight: 600; color: var(--text-mid);
-    white-space: nowrap;
-  }
+  /* TRUST BAR */
+  .trust-bar { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 18px 0; }
+  .trust-inner { display: flex; justify-content: center; align-items: center; gap: clamp(20px,4vw,60px); flex-wrap: wrap; padding: 0 clamp(16px,5vw,60px); max-width: 1180px; margin: 0 auto; }
+  .trust-item { display: flex; align-items: center; gap: 9px; font-size: 13px; font-weight: 600; color: var(--text-mid); white-space: nowrap; }
   .trust-item span { font-size: 18px; }
 </style>
 </head>
 <body>
 
-<!-- Hidden SVG defs for Instagram gradient on icon -->
-<svg width="0" height="0" style="position:absolute">
+<!-- Hidden SVG defs for Instagram gradient -->
+<svg width="0" height="0" style="position:absolute;overflow:hidden">
   <defs>
-    <linearGradient id="ig-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#f09433"/>
-      <stop offset="25%" stop-color="#e6683c"/>
-      <stop offset="50%" stop-color="#dc2743"/>
-      <stop offset="75%" stop-color="#cc2366"/>
+    <linearGradient id="ig-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#f09433"/>
+      <stop offset="25%"  stop-color="#e6683c"/>
+      <stop offset="50%"  stop-color="#dc2743"/>
+      <stop offset="75%"  stop-color="#cc2366"/>
       <stop offset="100%" stop-color="#bc1888"/>
     </linearGradient>
   </defs>
 </svg>
 
-<!-- ── NAV ── -->
+<!-- NAV -->
 <nav id="navbar">
   <a href="#" class="nav-logo">
     <img src="https://www.solarcleaning.com.tr/images/logo.webp" alt="Solar Cleaning Logo"
-      onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+      onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
     <span class="nav-logo-text" style="display:none">SOLAR CLEANING</span>
   </a>
   <button class="hamburger" id="hamburger" aria-label="Menü">
@@ -795,47 +414,32 @@
   </ul>
 </nav>
 
-<!-- ── HERO ── -->
+<!-- HERO -->
 <section class="hero">
   <video class="hero-video" autoplay muted loop playsinline preload="auto">
     <source src="https://www.solarcleaning.com.tr/images/arkaplan.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
   <div class="sun-rays"></div>
-
   <div class="hero-content">
     <div class="hero-badge">Profesyonel Robotik Temizlik</div>
-    <h1>
-      <span>GÜNEŞ PANELİ</span>
-      <span>TEMİZLİĞİNDE</span>
-      <span><em>UZMAN</em></span>
-    </h1>
+    <h1><span>GÜNEŞ PANELİ</span><span>TEMİZLİĞİNDE</span><span><em>UZMAN</em></span></h1>
     <p class="hero-sub">Kirli paneller veriminizi %25'e kadar düşürüyor. Robotik sistemimizle maksimum enerji verimi, minimum hasar, sıfır stres.</p>
     <div class="hero-btns">
       <a href="tel:05435921043" class="btn-primary">📞 0543 592 10 43</a>
       <a href="#neden" class="btn-outline">Neden Solar Cleaning?</a>
     </div>
   </div>
-
   <div class="hero-stats">
     <div class="hero-stats-inner">
-      <div class="stat">
-        <div class="stat-num">%25</div>
-        <div class="stat-label">Verim Kaybı Önlenir</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">3 AY</div>
-        <div class="stat-label">Önerilen Sıklık</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">0 HASAR</div>
-        <div class="stat-label">Robotik Sistem</div>
-      </div>
+      <div class="stat"><div class="stat-num">%25</div><div class="stat-label">Verim Kaybı Önlenir</div></div>
+      <div class="stat"><div class="stat-num">3 AY</div><div class="stat-label">Önerilen Sıklık</div></div>
+      <div class="stat"><div class="stat-num">0 HASAR</div><div class="stat-label">Robotik Sistem</div></div>
     </div>
   </div>
 </section>
 
-<!-- ── TRUST BAR ── -->
+<!-- TRUST BAR -->
 <div class="trust-bar">
   <div class="trust-inner">
     <div class="trust-item"><span>✅</span> Sertifikalı Ekip</div>
@@ -846,11 +450,10 @@
   </div>
 </div>
 
-<!-- ── NEDEN TEMİZLİK ── -->
+<!-- NEDEN TEMİZLİK -->
 <section class="section-pad" id="neden">
   <div class="container">
     <div class="why-grid">
-
       <div class="reveal">
         <span class="section-tag">// Robotik Temizlik</span>
         <h2 class="section-title">Güneş Paneli Robotik Temizlik <em>Neden Bu Kadar Önemli?</em></h2>
@@ -873,26 +476,22 @@
         </div>
 
         <div class="chips">
-          <span class="chip">✓ Sertifikalı Ekip</span>
-          <span class="chip">✓ Sigortalı Hizmet</span>
-          <span class="chip">✓ Hasar Yok</span>
-          <span class="chip">✓ Hızlı Servis</span>
+          <span class="chip chip-green">✓ Sertifikalı Ekip</span>
+          <span class="chip chip-blue">✓ Sigortalı Hizmet</span>
+          <span class="chip chip-red">✓ Hasar Yok</span>
+          <span class="chip chip-orange">✓ Hızlı Servis</span>
         </div>
       </div>
 
       <div class="why-image-wrap reveal reveal-d2">
         <img src="http://www.solarcleaning.com.tr/images/solar-cleaning.webp" alt="Güneş Paneli Robotik Temizlik" loading="lazy">
-        <div class="why-image-badge">
-          <strong>+25%</strong>
-          Verim Artışı<br>Temizlik Sonrası
-        </div>
+        <div class="why-image-badge"><strong>+25%</strong>Verim Artışı<br>Temizlik Sonrası</div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ── YAĞMUR ── -->
+<!-- YAĞMUR -->
 <section class="section-pad rain-section" id="yagmur">
   <div class="container">
     <div class="reveal" style="max-width:700px">
@@ -901,42 +500,41 @@
       <div class="divider"></div>
       <p class="section-body">Doğal temizlik sandığınız şey, aslında sessiz bir verim kaybına yol açıyor olabilir. Yağmur, görünürde paneli ıslatsa da gerçek temizliği sağlamaktan çok uzaktır.</p>
     </div>
-
     <div class="rain-grid">
-      <div class="rain-card reveal reveal-d1">
+      <div class="rain-card rain-card-1 reveal reveal-d1">
         <div class="rain-icon">💧</div>
         <h4>1. Yağmur Kirleri Akıtmaz, Sadece Yayar</h4>
         <p>Yağmur damlası kiri ile birlikte hareket ederek panel yüzeyine eşit dağıtır. Bu, temizlik değil; kirlerin yeniden dağılımıdır.</p>
       </div>
-      <div class="rain-card reveal reveal-d2">
+      <div class="rain-card rain-card-2 reveal reveal-d2">
         <div class="rain-icon">🔴</div>
         <h4>2. Kuruyan Damlalar Kalıcı Leke Oluşturur</h4>
         <p>Yağmur suyundaki mineral ve kireç, panel camı üzerinde kuruyunca kalıcı iz bırakır. Bu izler ışık geçirgenliğini ciddi ölçüde azaltır.</p>
       </div>
-      <div class="rain-card reveal reveal-d3">
+      <div class="rain-card rain-card-3 reveal reveal-d3">
         <div class="rain-icon">📐</div>
         <h4>3. Panel Eğimleri Temizliğe Uygun Değil</h4>
         <p>Güneş panellerinin yatay veya hafif eğimli konumu, yağmur suyunun panel üzerinde durmasına neden olur. Bu durum kireç birikimini artırır.</p>
       </div>
-      <div class="rain-card reveal reveal-d1">
+      <div class="rain-card rain-card-4 reveal reveal-d1">
         <div class="rain-icon">⏱️</div>
         <h4>4. Yağmur Temizliği Geçici Etki Yaratır</h4>
         <p>Yağmurdan sonra paneller görsel olarak temiz görünse de ölçüm yapıldığında verim kaybının devam ettiği net biçimde ortaya çıkar.</p>
       </div>
-      <div class="rain-card reveal reveal-d2">
+      <div class="rain-card rain-card-5 reveal reveal-d2">
         <div class="rain-icon">🤖</div>
         <h4>5. Profesyonel Temizliğin Yerini Tutamaz</h4>
         <p>Robotik sistemimiz, saf su ve özel fırça teknolojisiyle panel yüzeyini sıfırdan temizler. Yağmurun yapamadığını biz yapıyoruz.</p>
       </div>
-      <div class="rain-card reveal reveal-d3" style="background: linear-gradient(135deg, var(--orange-light), #fff3e0); border-color: var(--border-orange); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
-        <div style="font-family:'Bebas Neue',sans-serif; font-size:60px; line-height:1; color:var(--orange);">YOK!</div>
-        <p style="color:var(--orange-dark); font-weight:700; margin-top:8px; font-size:14px;">Yağmurun temizleme etkisi bu kadardır.</p>
+      <div class="rain-card rain-card-6 reveal reveal-d3">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:60px;line-height:1;color:var(--orange);">YOK!</div>
+        <p style="color:var(--orange-dark);font-weight:700;margin-top:8px;font-size:14px;">Yağmurun temizleme etkisi bu kadardır.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── HOTSPOT ── -->
+<!-- HOTSPOT -->
 <section class="section-pad hotspot-section" id="hotspot">
   <div class="container">
     <div class="reveal">
@@ -944,7 +542,6 @@
       <h2 class="section-title">Hotspot <em>Nedir?</em></h2>
       <div class="divider"></div>
     </div>
-
     <div class="hotspot-wrap">
       <div class="reveal">
         <p class="section-body" style="margin-bottom:24px;">Hotspot, bir güneş panelinin belirli bir bölgesinin aşırı ısınması sonucu oluşan tehlikeli bir durumdur. Kir, gölge veya hasar nedeniyle bazı hücreler elektrik üretemez hale gelir ve ürettikleri elektriği tüketen yük haline dönüşürler.</p>
@@ -961,18 +558,15 @@
           <p>Hotspot oluşumunun en temel nedeni, panel yüzeyindeki birikmelerdir. Düzenli robotik temizlik ile bu riskten tamamen korunabilir, panel ömrünüzü ve yatırımınızı koruyabilirsiniz.</p>
         </div>
       </div>
-
       <div class="hotspot-visual reveal reveal-d2">
         <img src="http://www.solarcleaning.com.tr/images/solar-cleaning2.webp" alt="Hotspot Güneş Paneli" loading="lazy">
-        <div class="hotspot-label">
-          <div class="hotspot-pulse">🔥</div>
-        </div>
+        <div class="hotspot-label"><div class="hotspot-pulse">🔥</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── SIKLIK ── -->
+<!-- SIKLIK -->
 <section class="section-pad freq-section" id="siklik">
   <div class="container">
     <div class="reveal">
@@ -981,68 +575,39 @@
       <div class="divider"></div>
       <p class="section-body">Temizlik sıklığı; coğrafi konum, panel eğimi, çevresel faktörler ve mevsime göre değişir. Ancak genel kural olarak her 3 ayda bir profesyonel temizlik önerilmektedir.</p>
     </div>
-
     <div class="freq-inner">
       <div>
         <h3 class="freq-sub-title reveal">Neden En Az <em>3 Ayda Bir</em> Temizlik?</h3>
         <div class="freq-timeline">
           <div class="timeline-item reveal reveal-d1">
             <div class="timeline-dot">1</div>
-            <div class="timeline-content">
-              <h4>Mevsimsel Kirlilik Döngüsü</h4>
-              <p>Her mevsim farklı bir kirlilik tipi getirir: ilkbaharda çiçek tozu, yazın toz/kum, sonbaharda yaprak ve kış sonunda çamur. Üç aylık temizlik bu döngüye uyum sağlar.</p>
-            </div>
+            <div class="timeline-content"><h4>Mevsimsel Kirlilik Döngüsü</h4><p>Her mevsim farklı bir kirlilik tipi getirir: ilkbaharda çiçek tozu, yazın toz/kum, sonbaharda yaprak ve kış sonunda çamur. Üç aylık temizlik bu döngüye uyum sağlar.</p></div>
           </div>
           <div class="timeline-item reveal reveal-d2">
             <div class="timeline-dot">2</div>
-            <div class="timeline-content">
-              <h4>Verim Kaybının Birikmesi</h4>
-              <p>İlk ayda %5, üçüncü ayda %15'e ulaşabilen verim kaybı, temizlikle sıfırlanır. Erken müdahale uzun vadede çok daha fazla enerji ve para kazandırır.</p>
-            </div>
+            <div class="timeline-content"><h4>Verim Kaybının Birikmesi</h4><p>İlk ayda %5, üçüncü ayda %15'e ulaşabilen verim kaybı, temizlikle sıfırlanır. Erken müdahale uzun vadede çok daha fazla enerji ve para kazandırır.</p></div>
           </div>
           <div class="timeline-item reveal reveal-d3">
             <div class="timeline-dot">3</div>
-            <div class="timeline-content">
-              <h4>Ekipman Sağlığı ve Garanti</h4>
-              <p>Panel üreticilerinin çoğu, garanti kapsamında düzenli bakım yapılmasını şart koşar. Belgelenmiş temizlik hizmeti, garanti taleplerinde de koruma sağlar.</p>
-            </div>
+            <div class="timeline-content"><h4>Ekipman Sağlığı ve Garanti</h4><p>Panel üreticilerinin çoğu, garanti kapsamında düzenli bakım yapılmasını şart koşar. Belgelenmiş temizlik hizmeti, garanti taleplerinde de koruma sağlar.</p></div>
           </div>
         </div>
       </div>
-
       <div>
         <h3 class="freq-sub-title reveal">Temizlik Sıklığını <em>Etkileyen</em> Faktörler</h3>
         <div class="freq-factors">
-          <div class="factor-card reveal reveal-d1">
-            <div class="factor-icon">🌵</div>
-            <h5>Çevresel Konum</h5>
-            <p>Tarım arazisi veya yol kenarındaki sistemler çok daha sık temizlenmelidir.</p>
-          </div>
-          <div class="factor-card reveal reveal-d2">
-            <div class="factor-icon">🐦</div>
-            <h5>Kuş Yoğunluğu</h5>
-            <p>Kuş pisliği hotspot'a en hızlı yol açan etkenlerden biridir.</p>
-          </div>
-          <div class="factor-card reveal reveal-d3">
-            <div class="factor-icon">🌬️</div>
-            <h5>Rüzgâr & Toz</h5>
-            <p>Kuru ve tozlu bölgelerde aylık temizlik dahi gerekebilir.</p>
-          </div>
-          <div class="factor-card reveal reveal-d4">
-            <div class="factor-icon">☀️</div>
-            <h5>Panel Eğimi</h5>
-            <p>Düz yüzeyli paneller daha fazla birikim toplar, daha sık temizlik ister.</p>
-          </div>
+          <div class="factor-card reveal reveal-d1"><div class="factor-icon">🌵</div><h5>Çevresel Konum</h5><p>Tarım arazisi veya yol kenarındaki sistemler çok daha sık temizlenmelidir.</p></div>
+          <div class="factor-card reveal reveal-d2"><div class="factor-icon">🐦</div><h5>Kuş Yoğunluğu</h5><p>Kuş pisliği hotspot'a en hızlı yol açan etkenlerden biridir.</p></div>
+          <div class="factor-card reveal reveal-d3"><div class="factor-icon">🌬️</div><h5>Rüzgâr & Toz</h5><p>Kuru ve tozlu bölgelerde aylık temizlik dahi gerekebilir.</p></div>
+          <div class="factor-card reveal reveal-d4"><div class="factor-icon">☀️</div><h5>Panel Eğimi</h5><p>Düz yüzeyli paneller daha fazla birikim toplar, daha sık temizlik ister.</p></div>
         </div>
-        <img src="http://www.solarcleaning.com.tr/images/solar-cleaning3.webp"
-          alt="Güneş Paneli Temizlik Sıklığı" loading="lazy"
-          class="freq-img reveal reveal-d2">
+        <img src="http://www.solarcleaning.com.tr/images/solar-cleaning3.webp" alt="Güneş Paneli Temizlik Sıklığı" loading="lazy" class="freq-img reveal reveal-d2">
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── MÜŞTERİ YORUMLARI ── -->
+<!-- MÜŞTERİ YORUMLARI -->
 <section class="section-pad reviews-section" id="yorumlar">
   <div class="container">
     <div class="reveal">
@@ -1052,145 +617,79 @@
       <p class="section-body" style="margin-bottom:36px;">Gerçek müşteri deneyimleri ve Google üzerindeki 5 yıldızlı değerlendirmelerimiz.</p>
     </div>
 
-    <div class="reviews-overall reveal reveal-d1">
+    <div class="reviews-overall reveal">
       <div class="reviews-score">5.0</div>
       <div class="reviews-score-detail">
         <div class="stars">★★★★★</div>
         <span>Google'da 5 Yıldız</span>
-        <span style="margin-top:2px;">Ortalama müşteri puanı</span>
+        <span>Ortalama müşteri puanı</span>
       </div>
-      <div style="margin-left:auto;display:flex;align-items:center;gap:8px;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
-          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-        </svg>
-        <span style="font-size:12px;color:var(--text-muted);font-weight:600;">Google Reviews</span>
+      <div class="google-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Google Reviews
       </div>
     </div>
 
     <div class="reviews-grid">
-
       <!-- Review 1 -->
       <div class="review-card reveal reveal-d1">
         <div class="review-header">
-          <div class="review-avatar">AK</div>
-          <div class="review-meta">
-            <h5>Ahmet Kaya</h5>
-            <span>2 ay önce</span>
-          </div>
+          <div class="review-avatar" style="background:#dbeafe;color:#1d4ed8;">AK</div>
+          <div class="review-meta"><h5>Ahmet Seran</h5><span>2 ay önce</span></div>
         </div>
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">Çiftliğimizdeki 180 panel için Solar Cleaning'i tercih ettik. Temizlik sonrası inverter verilerini karşılaştırdığımızda ortalama %22 verim artışı gördük. Robotik sistem sayesinde hiçbir panele dokunulmadı, ekip çok profesyonel davrandı. Kesinlikle tavsiye ederim.</p>
-        <div class="review-google">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
-            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-          </svg>
-          Google'da Doğrulandı
-        </div>
+        <p class="review-text">Çiftliğimizdeki 180 panel için Solar Cleaning'i tercih ettik. Temizlik sonrası inverter verilerini karşılaştırdığımızda ortalama %22 verim artışı gördük. Robotik sistem sayesinde hiçbir panele hasar gelmedi, ekip son derece profesyonel davrandı. Kesinlikle tavsiye ederim.</p>
+        <div class="review-google"><svg width="13" height="13" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google'da Doğrulandı</div>
       </div>
-
       <!-- Review 2 -->
       <div class="review-card reveal reveal-d2">
         <div class="review-header">
-          <div class="review-avatar" style="background:#e8f5e9;color:#22c55e;">FY</div>
-          <div class="review-meta">
-            <h5>Fatma Yıldız</h5>
-            <span>1 ay önce</span>
-          </div>
+          <div class="review-avatar" style="background:#d1fae5;color:#065f46;">FY</div>
+          <div class="review-meta"><h5>Fatma Yıldız</h5><span>1 ay önce</span></div>
         </div>
         <div class="review-stars">★★★★★</div>
         <p class="review-text">Ev çatısındaki 12 panelimi 2 yıldır bu firmaya yıkatıyorum. Her seferinde zamanında geliyorlar, işlerini özenle yapıyorlar ve hizmet sonrası rapor sunuyorlar. Fiyat/performans olarak sektörün en iyisi. Komşularıma da hep önerdim, hepsi memnun kaldı.</p>
-        <div class="review-google">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
-            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-          </svg>
-          Google'da Doğrulandı
-        </div>
+        <div class="review-google"><svg width="13" height="13" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google'da Doğrulandı</div>
       </div>
-
       <!-- Review 3 -->
       <div class="review-card reveal reveal-d3">
         <div class="review-header">
-          <div class="review-avatar" style="background:#eff6ff;color:#3b82f6;">MO</div>
-          <div class="review-meta">
-            <h5>Mehmet Öztürk</h5>
-            <span>3 hafta önce</span>
-          </div>
+          <div class="review-avatar" style="background:#ede9fe;color:#5b21b6;">MÖ</div>
+          <div class="review-meta"><h5>Mehmet Öztürk</h5><span>3 hafta önce</span></div>
         </div>
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">Kahramankazan'daki fabrikamızın çatı GES sistemini Solar Cleaning ekibine teslim ettik. 320 paneli tek günde, sıfır aksaklıkla temizlediler. Hotspot riski taşıyan 4 paneli de tespit edip bizi uyardılar. Bu profesyonellik çok değerli. Sözleşmeli hizmet için anlaştık.</p>
-        <div class="review-google">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
-            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-          </svg>
-          Google'da Doğrulandı
-        </div>
+        <p class="review-text">Fabrikamızın çatı GES sistemini Solar Cleaning ekibine teslim ettik. 320 paneli tek günde, sıfır aksaklıkla temizlediler. Hotspot riski taşıyan 4 paneli de tespit edip uyardılar. Bu profesyonellik çok değerli. Yıllık bakım sözleşmesi için anlaştık.</p>
+        <div class="review-google"><svg width="13" height="13" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google'da Doğrulandı</div>
       </div>
-
       <!-- Review 4 -->
       <div class="review-card reveal reveal-d1">
         <div class="review-header">
-          <div class="review-avatar" style="background:#fdf2f8;color:#a855f7;">SÇ</div>
-          <div class="review-meta">
-            <h5>Selin Çelik</h5>
-            <span>5 gün önce</span>
-          </div>
+          <div class="review-avatar" style="background:#fce7f3;color:#9d174d;">SÇ</div>
+          <div class="review-meta"><h5>Selin Çelik</h5><span>5 gün önce</span></div>
         </div>
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">Hem fiyat hem de hizmet kalitesi açısından gerçekten memnunum. Önce WhatsApp üzerinden bilgi aldım, aynı gün keşfe geldiler ve ertesi gün temizliği tamamladılar. Panellerim yeni gibi oldu. Üstelik su kullanımı çok kontrollü, çatıda hiçbir sorun yaşanmadı.</p>
-        <div class="review-google">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
-            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-          </svg>
-          Google'da Doğrulandı
-        </div>
+        <p class="review-text">Hem fiyat hem hizmet kalitesi açısından gerçekten memnunum. WhatsApp üzerinden bilgi aldım, aynı gün keşfe geldiler ve ertesi gün temizliği tamamladılar. Panellerim yeni gibi oldu. Su kullanımı çok kontrollü, çatıda hiçbir sorun yaşanmadı.</p>
+        <div class="review-google"><svg width="13" height="13" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google'da Doğrulandı</div>
       </div>
-
       <!-- Review 5 -->
       <div class="review-card reveal reveal-d2">
         <div class="review-header">
-          <div class="review-avatar" style="background:#fff7ed;color:#ea580c;">HK</div>
-          <div class="review-meta">
-            <h5>Hasan Kılıç</h5>
-            <span>2 hafta önce</span>
-          </div>
+          <div class="review-avatar" style="background:#ffedd5;color:#9a3412;">HK</div>
+          <div class="review-meta"><h5>Hasan Kılıç</h5><span>2 hafta önce</span></div>
         </div>
         <div class="review-stars">★★★★★</div>
-        <p class="review-text">Çiftliğimizdeki tarım arazisinde kurulu 96 panelli sistemi 6 aydır Solar Cleaning temizliyor. Toz ve kuş pisliği nedeniyle çok hızlı kirlenen panellerimiz artık sürekli takip altında. Düzenli temizlik sayesinde bu yıl geçen yıla kıyasla ciddi bir üretim artışı elde ettik. Teşekkürler.</p>
-        <div class="review-google">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
-            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-          </svg>
-          Google'da Doğrulandı
-        </div>
+        <p class="review-text">Tarım arazisindeki 96 panelli sistemi 6 aydır Solar Cleaning temizliyor. Toz ve kuş pisliği nedeniyle hızlı kirlenen panellerimiz artık sürekli takip altında. Düzenli temizlik sayesinde bu yıl geçen yıla kıyasla ciddi üretim artışı elde ettik. Teşekkürler!</p>
+        <div class="review-google"><svg width="13" height="13" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google'da Doğrulandı</div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ── CTA ── -->
+<!-- CTA -->
 <section class="cta-section">
   <div class="container">
     <div class="cta-inner reveal">
-      <span class="section-tag" style="display:inline-block;text-align:center;margin-bottom:16px;">// Hemen Başlayın</span>
+      <span class="section-tag" style="display:inline-block;margin-bottom:16px;">// Hemen Başlayın</span>
       <h2 class="section-title">Panelleriniz <em>Bizimle</em> Güvende</h2>
       <p>Ücretsiz keşif ve fiyat teklifi için şimdi iletişime geçin. Ankara ve çevre illere profesyonel robotik temizlik hizmeti veriyoruz.</p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
@@ -1201,7 +700,7 @@
   </div>
 </section>
 
-<!-- ── İLETİŞİM ── -->
+<!-- İLETİŞİM -->
 <section class="section-pad contact-section" id="iletisim">
   <div class="container">
     <div class="reveal">
@@ -1209,46 +708,31 @@
       <h2 class="section-title">İletişim & <em>Konum</em></h2>
       <div class="divider"></div>
     </div>
-
     <div class="contact-grid">
       <div class="contact-info">
         <div class="contact-item reveal reveal-d1">
           <div class="contact-icon">📞</div>
-          <div class="contact-detail">
-            <h5>Telefon</h5>
-            <a href="tel:05435921043">0543 592 10 43</a>
-          </div>
+          <div class="contact-detail"><h5>Telefon</h5><a href="tel:05435921043">0543 592 10 43</a></div>
         </div>
         <div class="contact-item reveal reveal-d2">
           <div class="contact-icon">📍</div>
-          <div class="contact-detail">
-            <h5>Adres</h5>
-            <p>Dağyaka, Küme evleri No:162/C<br>06980 Kahramankazan / Ankara</p>
-          </div>
+          <div class="contact-detail"><h5>Adres</h5><p>Dağyaka, Küme evleri No:162/C<br>06980 Kahramankazan / Ankara</p></div>
         </div>
         <div class="contact-item reveal reveal-d3">
           <div class="contact-icon">🌐</div>
-          <div class="contact-detail">
-            <h5>Web Sitesi</h5>
-            <a href="http://www.solarcleaning.com.tr" target="_blank">www.solarcleaning.com.tr</a>
-          </div>
+          <div class="contact-detail"><h5>Web Sitesi</h5><a href="http://www.solarcleaning.com.tr" target="_blank">www.solarcleaning.com.tr</a></div>
         </div>
-
         <div class="reveal reveal-d4">
           <p style="font-size:10px;color:var(--text-muted);margin-bottom:12px;letter-spacing:.12em;text-transform:uppercase;font-family:'Space Mono',monospace;">Bizi Takip Edin</p>
           <div class="social-links">
-            <!-- Instagram button with gradient styling -->
-            <a href="https://www.instagram.com/solarcleaninges" target="_blank" class="social-btn social-btn-instagram" aria-label="Instagram'da takip edin">
-              <span class="ig-icon-wrap">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="2" width="20" height="20" rx="5" stroke="url(#ig-gradient)"/>
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="url(#ig-gradient)"/>
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="url(#ig-gradient)"/>
-                </svg>
-              </span>
+            <a href="https://www.instagram.com/solarcleaninges" target="_blank" class="social-btn social-btn-ig">
+              <svg class="ig-svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" stroke="url(#ig-grad)"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="url(#ig-grad)"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="url(#ig-grad)"/>
+              </svg>
               <span class="ig-label">Instagram</span>
             </a>
-
             <a href="https://wa.me/905435921043" target="_blank" class="social-btn" style="color:#16a34a;">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.553 4.116 1.524 5.84L0 24l6.336-1.507A11.951 11.951 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.96 0-3.8-.525-5.38-1.44l-.385-.23-3.994.95.967-3.885-.252-.4A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
               WhatsApp
@@ -1256,23 +740,20 @@
           </div>
         </div>
       </div>
-
       <div class="map-wrap reveal reveal-d2">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3052.5323992904027!2d32.61766377592888!3d40.08584127149476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d333da706a6c4d%3A0x35ca11e6faee5046!2sSolar%20Cleaning%20G%C3%BCne%C5%9F%20Paneli%20Temizli%C4%9Fi!5e0!3m2!1str!2str!4v1775171030184!5m2!1str!2str"
-          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          title="Solar Cleaning Konum">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3052.5323992904027!2d32.61766377592888!3d40.08584127149476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d333da706a6c4d%3A0x35ca11e6faee5046!2sSolar%20Cleaning%20G%C3%BCne%C5%9F%20Paneli%20Temizli%C4%9Fi!5e0!3m2!1str!2str!4v1775171030184!5m2!1str!2str"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Solar Cleaning Konum">
         </iframe>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-logo">
     <img src="http://www.solarcleaning.com.tr/images/logo.webp" alt="Solar Cleaning"
-      onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+      onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
     <span class="footer-logo-text">SOLAR CLEANING</span>
   </div>
   <p class="footer-copy">
@@ -1286,17 +767,17 @@
   </div>
 </footer>
 
-<!-- ── DEVELOPER CREDIT ── -->
+<!-- DEV CREDIT -->
 <div class="dev-credit">
   Bu site <a href="https://www.umutyanardag.com" target="_blank" rel="noopener noreferrer">Umut Yanardağ</a> tarafından özenle kodlanmıştır.
 </div>
 
-<!-- ── FLOATING BUTTONS ── -->
+<!-- FLOATING BUTTONS -->
 <div class="float-btns">
-  <a href="https://wa.me/905435921043" class="float-btn float-wa" target="_blank" title="WhatsApp ile İletişim">
+  <a href="https://wa.me/905435921043" class="float-btn float-wa" target="_blank" title="WhatsApp">
     <svg width="23" height="23" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.553 4.116 1.524 5.84L0 24l6.336-1.507A11.951 11.951 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.96 0-3.8-.525-5.38-1.44l-.385-.23-3.994.95.967-3.885-.252-.4A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
   </a>
-  <a href="tel:05435921043" class="float-btn float-call" title="Telefon ile İletişim">
+  <a href="tel:05435921043" class="float-btn float-call" title="Telefon">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
       <path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.2 1.3.5 2.7.7 4.2.7.6 0 1 .4 1 1V21c0 .6-.4 1-1 1C10.1 22 2 13.9 2 3c0-.6.4-1 1-1h4.3c.6 0 1 .4 1 1 0 1.5.2 2.9.7 4.2.1.4 0 .9-.2 1.2l-2.2 2.2z"/>
     </svg>
