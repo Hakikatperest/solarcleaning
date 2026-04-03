@@ -10,18 +10,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --sun: #f57e0d;
-    --sun-bright: #ffaa4d;
-    --sky: #0A1628;
-    --sky-mid: #0D2045;
-    --accent: #00E5FF;
-    --accent2: #76FF03;
-    --white: #F0F4FF;
-    --gray: #8899BB;
-    --card-bg: rgba(13,32,69,0.7);
-    --radius: 16px;
-    --nav-text: #1a1a1a;
-    --nav-text-muted: #555;
+  --primary: #f57e0d;
+  --primary-soft: #fff3e6;
+  --white: #ffffff;
+  --dark: #1a1a1a;
+  --gray: #666;
+  --light-gray: #f5f5f5;
+  --card-bg: #ffffff;
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -120,11 +115,14 @@
   .hero-video {
     position: absolute; inset: 0;
     width: 100%; height: 100%; object-fit: cover; z-index: 0;
-    filter: brightness(.45) saturate(1.2);
+  filter: brightness(.75) saturate(1.1);
   }
   .hero-overlay {
     position: absolute; inset: 0; z-index: 1;
-    background: linear-gradient(180deg, rgba(10,22,40,.3) 0%, rgba(10,22,40,.1) 40%, rgba(10,22,40,.65) 75%, rgba(10,22,40,1) 100%);
+     background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.6),
+    rgba(255,255,255,0.9)
   }
   .sun-rays {
     position: absolute; top: -20%; right: -10%; z-index: 1;
@@ -155,11 +153,11 @@
   .hero-badge::before { content: '●'; color: var(--accent2); animation: blink 1.5s infinite; }
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
 
-  .hero h1 {
+.hero h1 span:last-child {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(48px, 11vw, 130px);
     line-height: .92; letter-spacing: .02em;
-    background: linear-gradient(135deg, #fff 30%, #ffaa4d 70%, #f57e0d 100%);
+  color: #f57e0d;
     -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     margin-bottom: 20px;
     animation: hero-in 1.2s .35s cubic-bezier(.22,1,.36,1) both;
