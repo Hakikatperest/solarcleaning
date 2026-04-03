@@ -1,4 +1,1195 @@
 <!DOCTYPE html>
 <html lang="tr">
-YAKINDA YAYINDAYIZ...
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Solar Cleaning - Profesyonel Güneş Paneli Robotik Temizlik Hizmeti. Ankara, Kahramankazan. Veriminizi artırın, panellerinizi koruyun.">
+<meta name="keywords" content="güneş paneli temizlik, solar panel temizleme, robotik panel temizlik, Ankara güneş paneli, hotspot önleme">
+<title>Solar Cleaning | Güneş Paneli Profesyonel Temizlik</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sun: #F5A623;
+    --sun-bright: #FFD166;
+    --sky: #0A1628;
+    --sky-mid: #0D2045;
+    --sky-light: #1A3A6E;
+    --accent: #00E5FF;
+    --accent2: #76FF03;
+    --white: #F0F4FF;
+    --gray: #8899BB;
+    --card-bg: rgba(13,32,69,0.7);
+    --radius: 16px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--sky);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--sky); }
+  ::-webkit-scrollbar-thumb { background: var(--sun); border-radius: 3px; }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 clamp(16px, 5vw, 60px);
+    height: 72px;
+    background: rgba(10,22,40,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(245,166,35,0.15);
+    transition: all .3s;
+  }
+  nav.scrolled {
+    height: 60px;
+    background: rgba(10,22,40,0.97);
+    border-bottom-color: rgba(245,166,35,0.3);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-logo img { height: 42px; object-fit: contain; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a {
+    color: var(--gray);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    transition: color .25s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute; bottom: -4px; left: 0; right: 100%;
+    height: 2px; background: var(--sun);
+    transition: right .3s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-links a:hover::after { right: 0; }
+  .nav-cta {
+    background: linear-gradient(135deg, var(--sun), #E8920A);
+    color: var(--sky) !important;
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-weight: 700 !important;
+    letter-spacing: .05em;
+    transition: transform .25s, box-shadow .25s !important;
+    white-space: nowrap;
+  }
+  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(245,166,35,.4); }
+  .nav-cta::after { display: none !important; }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--sun); border-radius: 2px; transition: .3s; }
+
+  @media(max-width:768px) {
+    .hamburger { display: flex; }
+    .nav-links {
+      position: fixed; top: 72px; left: 0; right: 0;
+      background: rgba(10,22,40,0.98);
+      flex-direction: column;
+      padding: 24px 32px 32px;
+      gap: 20px;
+      transform: translateY(-120%);
+      transition: transform .4s cubic-bezier(.4,0,.2,1);
+      border-bottom: 1px solid rgba(245,166,35,.2);
+    }
+    .nav-links.open { transform: translateY(0); }
+    .nav-links a { font-size: 15px; }
+    .nav-cta { display: inline-block; max-width: 160px; text-align: center; }
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative; min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .hero-video {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    filter: brightness(.45) saturate(1.2);
+  }
+  .hero-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(
+      180deg,
+      rgba(10,22,40,.3) 0%,
+      rgba(10,22,40,.1) 40%,
+      rgba(10,22,40,.6) 75%,
+      rgba(10,22,40,1) 100%
+    );
+  }
+  /* Animated sun rays */
+  .sun-rays {
+    position: absolute; top: -20%; right: -10%; z-index: 1;
+    width: min(700px, 80vw); height: min(700px, 80vw);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(245,166,35,.12) 0%, transparent 70%);
+    animation: pulse-sun 6s ease-in-out infinite;
+  }
+  @keyframes pulse-sun {
+    0%,100% { transform: scale(1); opacity: .6; }
+    50% { transform: scale(1.15); opacity: 1; }
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    text-align: center;
+    padding: 0 clamp(16px,6vw,80px);
+    max-width: 900px;
+    animation: hero-in 1.2s cubic-bezier(.22,1,.36,1) both;
+  }
+  @keyframes hero-in {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(245,166,35,.15);
+    border: 1px solid rgba(245,166,35,.4);
+    border-radius: 50px;
+    padding: 7px 18px;
+    font-size: 12px;
+    font-family: 'Space Mono', monospace;
+    color: var(--sun-bright);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    animation: hero-in 1.2s .2s cubic-bezier(.22,1,.36,1) both;
+  }
+  .hero-badge::before {
+    content: '●';
+    color: var(--accent2);
+    animation: blink 1.5s infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
+
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 10vw, 130px);
+    line-height: .92;
+    letter-spacing: .02em;
+    background: linear-gradient(135deg, #fff 30%, var(--sun-bright) 70%, var(--sun) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 24px;
+    animation: hero-in 1.2s .35s cubic-bezier(.22,1,.36,1) both;
+  }
+  .hero h1 span { display: block; }
+  .hero-sub {
+    font-size: clamp(14px, 2.2vw, 19px);
+    color: rgba(240,244,255,.75);
+    max-width: 560px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+    animation: hero-in 1.2s .5s cubic-bezier(.22,1,.36,1) both;
+  }
+  .hero-btns {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    animation: hero-in 1.2s .65s cubic-bezier(.22,1,.36,1) both;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--sun), #E8920A);
+    color: var(--sky);
+    border: none;
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .03em;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform .25s, box-shadow .25s;
+    display: inline-block;
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(245,166,35,.45); }
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    border: 1.5px solid rgba(255,255,255,.35);
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color .25s, background .25s, transform .25s;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--sun); background: rgba(245,166,35,.08); transform: translateY(-3px); }
+
+  /* Hero stats */
+  .hero-stats {
+    position: absolute; bottom: 48px; left: 0; right: 0; z-index: 2;
+    display: flex; justify-content: center; gap: clamp(24px, 5vw, 80px);
+    animation: hero-in 1.2s .8s cubic-bezier(.22,1,.36,1) both;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1;
+    background: linear-gradient(135deg, var(--sun-bright), var(--sun));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .stat-label {
+    font-size: 11px;
+    color: var(--gray);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  .stat-divider { width: 1px; background: rgba(255,255,255,.1); }
+
+  /* Scroll indicator */
+  .scroll-hint {
+    position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+    z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 6px;
+  }
+  .scroll-hint span { font-size: 10px; letter-spacing: .15em; color: var(--gray); text-transform: uppercase; }
+  .scroll-arrow { width: 20px; height: 20px; border-right: 2px solid var(--sun); border-bottom: 2px solid var(--sun); transform: rotate(45deg); animation: bounce .9s infinite alternate; }
+  @keyframes bounce { from{transform:rotate(45deg) translateY(-4px)} to{transform:rotate(45deg) translateY(4px)} }
+
+  /* ─── SECTIONS ─── */
+  section { position: relative; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 clamp(16px,5vw,60px); }
+  .section-pad { padding: clamp(64px,8vh,120px) 0; }
+
+  .section-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--sun);
+    margin-bottom: 14px;
+    display: block;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1;
+    letter-spacing: .02em;
+    margin-bottom: 20px;
+    color: var(--white);
+  }
+  .section-title em { font-style: normal; color: var(--sun); }
+  .section-body {
+    font-size: clamp(14px,1.6vw,17px);
+    line-height: 1.8;
+    color: rgba(240,244,255,.7);
+    max-width: 680px;
+  }
+
+  /* ─── WHY SECTION ─── */
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px 64px;
+    align-items: center;
+    margin-top: 60px;
+  }
+  @media(max-width:768px) { .why-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+  .why-image-wrap {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .why-image-wrap::before {
+    content: '';
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(135deg, rgba(245,166,35,.2), transparent 60%);
+  }
+  .why-image-wrap img {
+    width: 100%; height: 420px;
+    object-fit: cover;
+    display: block;
+    transition: transform .6s;
+  }
+  .why-image-wrap:hover img { transform: scale(1.04); }
+  .why-image-badge {
+    position: absolute; bottom: 20px; left: 20px; z-index: 2;
+    background: rgba(10,22,40,.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(245,166,35,.3);
+    border-radius: 12px;
+    padding: 12px 18px;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    color: var(--sun-bright);
+    line-height: 1.5;
+  }
+  .why-image-badge strong { display: block; font-size: 22px; color: var(--accent2); }
+
+  .why-list { list-style: none; margin-top: 28px; display: flex; flex-direction: column; gap: 16px; }
+  .why-list li {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: var(--card-bg);
+    border: 1px solid rgba(245,166,35,.1);
+    border-radius: 12px;
+    padding: 16px 20px;
+    transition: border-color .3s, transform .3s;
+  }
+  .why-list li:hover { border-color: rgba(245,166,35,.35); transform: translateX(6px); }
+  .why-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--sun);
+    line-height: 1;
+    min-width: 32px;
+  }
+  .why-text h4 { font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
+  .why-text p { font-size: 13px; color: var(--gray); line-height: 1.6; }
+
+  /* ─── RAIN SECTION ─── */
+  .rain-section { background: linear-gradient(180deg, var(--sky) 0%, var(--sky-mid) 100%); }
+
+  .rain-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 52px;
+  }
+  .rain-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(0,229,255,.12);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color .3s, transform .3s;
+  }
+  .rain-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform .4s;
+  }
+  .rain-card:hover { border-color: rgba(0,229,255,.35); transform: translateY(-6px); }
+  .rain-card:hover::before { transform: scaleX(1); }
+  .rain-icon { font-size: 36px; margin-bottom: 14px; }
+  .rain-card h4 { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+  .rain-card p { font-size: 13px; color: var(--gray); line-height: 1.65; }
+
+  /* ─── HOTSPOT SECTION ─── */
+  .hotspot-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-top: 60px;
+  }
+  @media(max-width:768px) { .hotspot-wrap { grid-template-columns: 1fr; gap: 40px; } }
+
+  .hotspot-visual {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 4/3;
+  }
+  .hotspot-visual img { width: 100%; height: 100%; object-fit: cover; }
+  .hotspot-visual::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 60% 40%, rgba(255,80,50,.35), transparent 60%);
+    pointer-events: none;
+  }
+  .hotspot-label {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+  }
+  .hotspot-pulse {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: rgba(255,80,50,.8);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 0 0 0 rgba(255,80,50,.6);
+    animation: hotspot-pulse 2s infinite;
+  }
+  @keyframes hotspot-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255,80,50,.6); }
+    70% { box-shadow: 0 0 0 30px rgba(255,80,50,0); }
+    100% { box-shadow: 0 0 0 0 rgba(255,80,50,0); }
+  }
+
+  .hotspot-cards { display: flex; flex-direction: column; gap: 18px; }
+  .hcard {
+    background: var(--card-bg);
+    border-left: 3px solid var(--sun);
+    border-radius: 0 12px 12px 0;
+    padding: 18px 22px;
+    transition: border-left-color .3s;
+  }
+  .hcard:nth-child(2) { border-left-color: var(--accent); }
+  .hcard:nth-child(3) { border-left-color: #FF5050; }
+  .hcard h4 { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+  .hcard p { font-size: 13px; color: var(--gray); line-height: 1.6; }
+
+  /* ─── FREQUENCY SECTION ─── */
+  .freq-section { background: linear-gradient(135deg, rgba(13,32,69,.8) 0%, rgba(10,22,40,1) 100%); }
+
+  .freq-timeline {
+    position: relative;
+    margin: 60px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .freq-timeline::before {
+    content: '';
+    position: absolute; left: 30px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--sun), var(--accent), var(--accent2));
+  }
+  .timeline-item {
+    display: flex; gap: 28px; align-items: flex-start;
+    padding: 0 0 36px 0;
+  }
+  .timeline-dot {
+    width: 60px; height: 60px; min-width: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--sun), #E8920A);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--sky);
+    position: relative; z-index: 1;
+    border: 3px solid var(--sky);
+  }
+  .timeline-item:nth-child(2) .timeline-dot { background: linear-gradient(135deg, var(--accent), #0088BB); }
+  .timeline-item:nth-child(3) .timeline-dot { background: linear-gradient(135deg, var(--accent2), #3DB800); color: var(--sky); }
+  .timeline-content { padding-top: 12px; }
+  .timeline-content h4 { font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+  .timeline-content p { font-size: 14px; color: var(--gray); line-height: 1.7; }
+
+  .freq-factors {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  .factor-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(245,166,35,.12);
+    border-radius: var(--radius);
+    padding: 24px 20px;
+    text-align: center;
+    transition: transform .3s, border-color .3s;
+  }
+  .factor-card:hover { transform: translateY(-6px); border-color: rgba(245,166,35,.4); }
+  .factor-icon { font-size: 42px; margin-bottom: 12px; }
+  .factor-card h5 { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+  .factor-card p { font-size: 12px; color: var(--gray); line-height: 1.6; }
+
+  /* ─── CTA SECTION ─── */
+  .cta-section {
+    background: linear-gradient(135deg, var(--sky-mid) 0%, var(--sky) 100%);
+    position: relative; overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(245,166,35,.07), transparent);
+  }
+  .cta-inner {
+    position: relative; z-index: 1;
+    text-align: center;
+    padding: clamp(64px,8vh,120px) 0;
+  }
+  .cta-inner .section-title { font-size: clamp(42px,6vw,80px); }
+
+  /* ─── CONTACT SECTION ─── */
+  .contact-section { background: var(--sky-mid); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 52px;
+  }
+  @media(max-width:768px) { .contact-grid { grid-template-columns: 1fr; } }
+
+  .contact-info { display: flex; flex-direction: column; gap: 24px; }
+  .contact-item {
+    display: flex; align-items: flex-start; gap: 16px;
+  }
+  .contact-icon {
+    width: 48px; height: 48px; min-width: 48px;
+    border-radius: 12px;
+    background: rgba(245,166,35,.12);
+    border: 1px solid rgba(245,166,35,.25);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .contact-detail h5 { font-size: 13px; font-weight: 700; color: var(--sun); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 4px; }
+  .contact-detail p, .contact-detail a { font-size: 15px; color: var(--white); text-decoration: none; line-height: 1.6; transition: color .25s; }
+  .contact-detail a:hover { color: var(--sun); }
+
+  .social-links { display: flex; gap: 12px; margin-top: 24px; }
+  .social-btn {
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(245,166,35,.1);
+    border: 1px solid rgba(245,166,35,.25);
+    border-radius: 50px;
+    padding: 10px 18px;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background .25s, border-color .25s, transform .25s;
+  }
+  .social-btn:hover { background: rgba(245,166,35,.2); border-color: var(--sun); transform: translateY(-3px); }
+
+  .map-wrap {
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid rgba(245,166,35,.2);
+    height: 350px;
+  }
+  .map-wrap iframe { width: 100%; height: 100%; border: 0; filter: invert(.9) hue-rotate(180deg) saturate(.8); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #060E1C;
+    border-top: 1px solid rgba(245,166,35,.1);
+    padding: 40px clamp(16px,5vw,60px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .footer-logo img { height: 36px; object-fit: contain; opacity: .8; }
+  .footer-copy { font-size: 12px; color: var(--gray); text-align: center; }
+  .footer-copy a { color: var(--sun); text-decoration: none; }
+  .footer-links { display: flex; gap: 20px; }
+  .footer-links a { font-size: 12px; color: var(--gray); text-decoration: none; transition: color .25s; }
+  .footer-links a:hover { color: var(--white); }
+
+  /* ─── FLOATING BUTTONS ─── */
+  .float-btns {
+    position: fixed;
+    bottom: 28px; right: 24px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+  .float-btn {
+    width: 54px; height: 54px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform .3s, box-shadow .3s;
+    box-shadow: 0 4px 20px rgba(0,0,0,.4);
+  }
+  .float-btn:hover { transform: scale(1.12); }
+  .float-wa {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+  }
+  .float-wa:hover { box-shadow: 0 8px 32px rgba(37,211,102,.5); }
+  .float-search {
+    background: linear-gradient(135deg, var(--sun), #E8920A);
+  }
+  .float-search:hover { box-shadow: 0 8px 32px rgba(245,166,35,.5); }
+
+  /* Search overlay */
+  .search-overlay {
+    position: fixed; inset: 0; z-index: 2000;
+    background: rgba(6,14,28,.95);
+    backdrop-filter: blur(20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity .35s;
+  }
+  .search-overlay.open { opacity: 1; pointer-events: all; }
+  .search-inner { width: min(640px, 90vw); }
+  .search-inner label {
+    display: block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: var(--sun);
+    margin-bottom: 20px;
+    letter-spacing: .05em;
+  }
+  .search-input-row { position: relative; }
+  .search-input-row input {
+    width: 100%;
+    background: rgba(255,255,255,.06);
+    border: 1.5px solid rgba(245,166,35,.35);
+    border-radius: 50px;
+    padding: 18px 56px 18px 26px;
+    font-size: 16px;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    transition: border-color .25s;
+  }
+  .search-input-row input:focus { border-color: var(--sun); }
+  .search-input-row button {
+    position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+    background: var(--sun); border: none; border-radius: 50%;
+    width: 40px; height: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background .25s;
+  }
+  .search-close {
+    display: block; margin-top: 20px; text-align: right;
+    color: var(--gray); font-size: 13px; cursor: pointer;
+    letter-spacing: .08em;
+    background: none; border: none; color: var(--gray); font-family: 'Space Mono', monospace;
+  }
+  .search-close:hover { color: var(--white); }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    width: 60px; height: 3px;
+    background: linear-gradient(90deg, var(--sun), var(--sun-bright));
+    border-radius: 2px;
+    margin: 20px 0 36px;
+  }
+
+  /* ─── REVEAL ANIMATION ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: .1s; }
+  .reveal-delay-2 { transition-delay: .2s; }
+  .reveal-delay-3 { transition-delay: .3s; }
+  .reveal-delay-4 { transition-delay: .4s; }
+
+  /* ─── PERFORMANCE BAR ─── */
+  .perf-bar-wrap { margin-top: 48px; }
+  .perf-row { margin-bottom: 20px; }
+  .perf-row-head {
+    display: flex; justify-content: space-between;
+    font-size: 13px; color: var(--gray); margin-bottom: 8px;
+  }
+  .perf-row-head strong { color: var(--white); font-weight: 600; }
+  .perf-track {
+    height: 8px; border-radius: 50px;
+    background: rgba(255,255,255,.07);
+    overflow: hidden;
+  }
+  .perf-fill {
+    height: 100%; border-radius: 50px;
+    background: linear-gradient(90deg, var(--sun), var(--sun-bright));
+    width: 0;
+    transition: width 1.4s cubic-bezier(.22,1,.36,1);
+  }
+
+  /* ─── GUARANTEE CHIPS ─── */
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: rgba(118,255,3,.08);
+    border: 1px solid rgba(118,255,3,.25);
+    border-radius: 50px;
+    padding: 7px 16px;
+    font-size: 12px;
+    color: var(--accent2);
+    letter-spacing: .05em;
+  }
+
+  @media (max-width: 480px) {
+    .hero-stats { gap: 20px; }
+    .stat-divider { display: none; }
+    .float-btn { width: 48px; height: 48px; font-size: 19px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <img src="http://www.solarcleaning.com.tr/images/logo.webp" alt="Solar Cleaning Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+    <span style="display:none; font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:.05em; background: linear-gradient(135deg,#F5A623,#FFD166); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">SOLAR CLEANING</span>
+  </a>
+  <button class="hamburger" id="hamburger" aria-label="Menüyü aç/kapat">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#neden">Neden Temizlik?</a></li>
+    <li><a href="#yagmur">Yağmur & Panel</a></li>
+    <li><a href="#hotspot">Hotspot</a></li>
+    <li><a href="#siklık">Temizlik Sıklığı</a></li>
+    <li><a href="#iletisim">İletişim</a></li>
+    <li><a href="https://wa.me/905435921043" class="nav-cta" target="_blank">Teklif Al</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="http://www.solarcleaning.com.tr/images/arkaplan.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="sun-rays"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">Profesyonel Robotik Temizlik</div>
+    <h1>
+      <span>GÜNEŞ PANELİ</span>
+      <span style="color:inherit">TEMİZLİĞİNDE</span>
+      <span>UZMAN</span>
+    </h1>
+    <p class="hero-sub">
+      Kirli paneller veriminizi %25'e kadar düşürüyor. Robotik sistemimizle maksimum enerji verimi, minimum hasar, sıfır stres.
+    </p>
+    <div class="hero-btns">
+      <a href="https://wa.me/905435921043" class="btn-primary" target="_blank">🚀 Hemen Teklif Al</a>
+      <a href="#neden" class="btn-outline">Neden Solar Cleaning?</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">%25</div>
+      <div class="stat-label">Verim Kaybı Önlenir</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <div class="stat-num">3 AY</div>
+      <div class="stat-label">Önerilen Sıklık</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat">
+      <div class="stat-num">0 HASAR</div>
+      <div class="stat-label">Robotik Sistem</div>
+    </div>
+  </div>
+</section>
+
+<!-- NEDEN TEMİZLİK -->
+<section class="section-pad" id="neden">
+  <div class="container">
+    <div class="why-grid">
+      <div class="reveal">
+        <span class="section-tag">// Robotik Temizlik</span>
+        <h2 class="section-title">Güneş Paneli Robotik Temizlik <em>Neden Bu Kadar Önemli?</em></h2>
+        <div class="divider"></div>
+        <p class="section-body">
+          Toz, kir, kuş pisliği ve hava kirleticileri güneş panellerinin yüzeyinde birikir ve güneş ışığının panel hücrelerine ulaşmasını engeller. Bu da doğrudan enerji üretim kaybına yol açar. Profesyonel robotik temizlik sayesinde panelleriniz fabrika performansına geri döner.
+        </p>
+
+        <div class="perf-bar-wrap reveal reveal-delay-2">
+          <div class="perf-row">
+            <div class="perf-row-head"><strong>Temizlenmiş Panel Verimi</strong><span>%100</span></div>
+            <div class="perf-track"><div class="perf-fill" data-width="100"></div></div>
+          </div>
+          <div class="perf-row">
+            <div class="perf-row-head"><strong>3 Ay Temizlenmemiş Panel</strong><span>~%85</span></div>
+            <div class="perf-track"><div class="perf-fill" data-width="85" style="background: linear-gradient(90deg, #E8920A, #F5A623);"></div></div>
+          </div>
+          <div class="perf-row">
+            <div class="perf-row-head"><strong>1 Yıl Temizlenmemiş Panel</strong><span>~%75</span></div>
+            <div class="perf-track"><div class="perf-fill" data-width="75" style="background: linear-gradient(90deg, #FF6B35, #FF9A5C);"></div></div>
+          </div>
+        </div>
+
+        <div class="chips">
+          <span class="chip">✓ Sertifikalı Ekip</span>
+          <span class="chip">✓ Sigortalı Hizmet</span>
+          <span class="chip">✓ Hasar Yok</span>
+          <span class="chip">✓ Hızlı Servis</span>
+        </div>
+      </div>
+
+      <div class="why-image-wrap reveal reveal-delay-2">
+        <img src="http://www.solarcleaning.com.tr/images/solar-cleaning.webp" alt="Güneş Paneli Robotik Temizlik" loading="lazy">
+        <div class="why-image-badge">
+          <strong>+25%</strong>
+          Verim Artışı<br>Temizlik Sonrası
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- YAĞMUR BÖLÜMÜ -->
+<section class="section-pad rain-section" id="yagmur">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">// Yaygın Yanılgı</span>
+      <h2 class="section-title">Yağmur Suları Güneş Panelini <em>Temizler mi?</em></h2>
+      <div class="divider"></div>
+      <p class="section-body">
+        Doğal temizlik sandığınız şey, aslında sessiz bir verim kaybına yol açıyor olabilir. Yağmur, görünürde paneli ıslatsa da gerçek temizliği sağlamaktan çok uzaktır.
+      </p>
+    </div>
+
+    <div class="rain-grid">
+      <div class="rain-card reveal reveal-delay-1">
+        <div class="rain-icon">💧</div>
+        <h4>Yağmur Kirleri Akıtmaz, Sadece Yayar</h4>
+        <p>Yağmur damlası kiri ile birlikte hareket ederek panel yüzeyine eşit dağıtır. Bu, temizlik değil; kirlerin yeniden dağılımıdır.</p>
+      </div>
+      <div class="rain-card reveal reveal-delay-2">
+        <div class="rain-icon">🔴</div>
+        <h4>Kuruyan Damlalar Kalıcı Leke Oluşturur</h4>
+        <p>Yağmur suyundaki mineral ve kireç, panel camı üzerinde kuruyunca kalıcı iz bırakır. Bu izler ışık geçirgenliğini ciddi ölçüde azaltır.</p>
+      </div>
+      <div class="rain-card reveal reveal-delay-3">
+        <div class="rain-icon">📐</div>
+        <h4>Panel Eğimleri Temizliğe Uygun Değil</h4>
+        <p>Güneş panellerinin yatay veya hafif eğimli konumu, yağmur suyunun panel üzerinde durmasına neden olur. Bu durum kireç birikimini artırır.</p>
+      </div>
+      <div class="rain-card reveal reveal-delay-4">
+        <div class="rain-icon">⏱️</div>
+        <h4>Yağmur Temizliği Geçici Etki Yaratır</h4>
+        <p>Yağmurdan sonra paneller görsel olarak temiz görünse de ölçüm yapıldığında verim kaybının devam ettiği net biçimde ortaya çıkmaktadır.</p>
+      </div>
+      <div class="rain-card reveal reveal-delay-1" style="grid-column: span 1;">
+        <div class="rain-icon">🤖</div>
+        <h4>Profesyonel Temizliğin Yerini Tutamaz</h4>
+        <p>Robotik sistemimiz, saf su ve özel fırça teknolojisiyle panel yüzeyini sıfırdan temizler. Yağmurun yapamadığını biz yapıyoruz.</p>
+      </div>
+      <div class="rain-card reveal reveal-delay-2" style="background: linear-gradient(135deg, rgba(0,229,255,.06), rgba(13,32,69,.8)); border-color: rgba(0,229,255,.25); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:60px; line-height:1; background: linear-gradient(135deg, #00E5FF, #0088BB); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">YOK!</div>
+        <p style="color: var(--accent); font-weight:600; margin-top:8px;">Yağmurun temizleme etkisi bu kadar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOTSPOT -->
+<section class="section-pad" id="hotspot">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">// Kritik Tehlike</span>
+      <h2 class="section-title">Hotspot <em>Nedir?</em></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="hotspot-wrap">
+      <div class="reveal">
+        <p class="section-body" style="margin-bottom: 24px;">
+          Hotspot, bir güneş panelinin belirli bir bölgesinin aşırı ısınması sonucu oluşan tehlikeli bir durumdur. Kir, gölge veya hasar nedeniyle bazı hücreler elektrik üretemez hale gelir ve ürettikleri elektriği tüketen yük haline dönüşürler.
+        </p>
+
+        <div class="hcard reveal reveal-delay-1">
+          <h4>🔥 Hotspot Nasıl Oluşur?</h4>
+          <p>Panel üzerindeki kir, yaprak, kuş pisliği veya gölge; bir veya birkaç hücrenin güneş ışığı almasını engeller. Bu hücreler, devre dışı kalmak yerine diğer hücrelerin ürettiği enerjiyi ısıya dönüştürerek tüketmeye başlar.</p>
+        </div>
+        <div class="hcard reveal reveal-delay-2">
+          <h4>⚡ Hotspot'un Sonuçları Nelerdir?</h4>
+          <p>Sıcaklık 150°C'yi aşabilir. Bu durum panel camının çatlamasına, laminasyonun bozulmasına, EVA folyonun sararmasına ve kalıcı hücre hasarına yol açar. Sigorta anlaşmazlıklarına ve garanti iptali riskine neden olabilir.</p>
+        </div>
+        <div class="hcard reveal reveal-delay-3">
+          <h4>🛡️ Önlem: Düzenli Temizlik</h4>
+          <p>Hotspot oluşumunun en temel nedeni, panel yüzeyindeki birikmelerdir. Düzenli robotik temizlik ile bu riskten tamamen korunabilirsiniz. Panel ömrünüzü uzatır, yatırımınızı korursunuz.</p>
+        </div>
+      </div>
+
+      <div class="hotspot-visual reveal reveal-delay-2">
+        <img src="http://www.solarcleaning.com.tr/images/solar-cleaning2.webp" alt="Hotspot Güneş Paneli" loading="lazy">
+        <div class="hotspot-label">
+          <div class="hotspot-pulse">🔥</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIKLIK -->
+<section class="section-pad freq-section" id="siklık">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">// Temizlik Programı</span>
+      <h2 class="section-title">Güneş Panelleri Ne Sıklıkla <em>Temizlenmeli?</em></h2>
+      <div class="divider"></div>
+      <p class="section-body">
+        Temizlik sıklığı; coğrafi konum, panel eğimi, çevresel faktörler ve mevsime göre değişir. Ancak genel kural olarak her 3 ayda bir profesyonel temizlik önerilmektedir.
+      </p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; margin-top:60px; align-items:start;">
+      <div>
+        <h3 class="reveal" style="font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--sun); letter-spacing:.05em; margin-bottom:28px;">Neden En Az 3 Ayda Bir Temizlik?</h3>
+        <div class="freq-timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-dot">1</div>
+            <div class="timeline-content">
+              <h4>Mevsimsel Kirlilik Döngüsü</h4>
+              <p>Her mevsim farklı bir kirlilik tipi getirir: ilkbaharda çiçek tozu, yazın toz/kum, sonbaharda yaprak ve kış sonunda çamur. Üç aylık temizlik bu döngüye uyum sağlar.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-dot">2</div>
+            <div class="timeline-content">
+              <h4>Verim Kaybının Birikmesi</h4>
+              <p>İlk ayda %5, üçüncü ayda %15'e ulaşabilen verim kaybı, temizlikle sıfırlanır. Erken müdahale, uzun vadede çok daha fazla enerji ve para kazandırır.</p>
+            </div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="timeline-dot">3</div>
+            <div class="timeline-content">
+              <h4>Ekipman Sağlığı ve Garanti</h4>
+              <p>Panel üreticilerinin çoğu, garanti kapsamında düzenli bakım yapılmasını şart koşar. Belgelenmiş temizlik hizmeti, garanti taleplerinde de koruma sağlar.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="reveal" style="font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--sun); letter-spacing:.05em; margin-bottom:28px;">Sıklığı Etkileyen Faktörler</h3>
+        <div class="freq-factors" style="grid-template-columns: 1fr 1fr;">
+          <div class="factor-card reveal reveal-delay-1">
+            <div class="factor-icon">🌵</div>
+            <h5>Çevresel Konum</h5>
+            <p>Tarım arazisi veya yol kenarında olan sistemler çok daha sık temizlenmelidir.</p>
+          </div>
+          <div class="factor-card reveal reveal-delay-2">
+            <div class="factor-icon">🐦</div>
+            <h5>Kuş Yoğunluğu</h5>
+            <p>Kuş pisliği hotspot'a en hızlı yol açan etkenlerden biridir.</p>
+          </div>
+          <div class="factor-card reveal reveal-delay-3">
+            <div class="factor-icon">🌬️</div>
+            <h5>Rüzgâr & Toz</h5>
+            <p>Kuru ve tozlu bölgelerde aylık temizlik dahi gerekebilir.</p>
+          </div>
+          <div class="factor-card reveal reveal-delay-4">
+            <div class="factor-icon">☀️</div>
+            <h5>Panel Eğimi</h5>
+            <p>Düz yüzeyli paneller daha fazla birikim toplar, daha sık temizlik ister.</p>
+          </div>
+        </div>
+        <div style="margin-top:28px;" class="reveal">
+          <img src="http://www.solarcleaning.com.tr/images/solar-cleaning3.webp" alt="Güneş Paneli Temizlik" loading="lazy" style="width:100%; border-radius:var(--radius); object-fit:cover; height:200px; border:1px solid rgba(245,166,35,.2);">
+        </div>
+      </div>
+    </div>
+
+    @media(max-width:768px) {
+      .section-freq-inner { grid-template-columns: 1fr !important; }
+    }
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <span class="section-tag" style="display:block; text-align:center; margin-bottom:16px;">// Hemen Başlayın</span>
+      <h2 class="section-title" style="font-size: clamp(42px,6vw,80px);">Panelleriniz <em>Bizimle</em> Güvende</h2>
+      <p style="font-size:clamp(14px,1.8vw,18px); color:rgba(240,244,255,.65); max-width:520px; margin:20px auto 40px; line-height:1.75;">
+        Ücretsiz keşif ve fiyat teklifi için şimdi iletişime geçin. Ankara ve çevre illere profesyonel robotik temizlik hizmeti veriyoruz.
+      </p>
+      <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+        <a href="https://wa.me/905435921043" class="btn-primary" target="_blank">📲 WhatsApp'tan Yaz</a>
+        <a href="tel:05435921043" class="btn-outline">📞 Hemen Ara</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- İLETİŞİM -->
+<section class="section-pad contact-section" id="iletisim">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-tag">// Bize Ulaşın</span>
+      <h2 class="section-title">İletişim & <em>Konum</em></h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item reveal reveal-delay-1">
+          <div class="contact-icon">📞</div>
+          <div class="contact-detail">
+            <h5>Telefon</h5>
+            <a href="tel:05435921043">0543 592 10 43</a>
+          </div>
+        </div>
+        <div class="contact-item reveal reveal-delay-2">
+          <div class="contact-icon">📍</div>
+          <div class="contact-detail">
+            <h5>Adres</h5>
+            <p>Dağyaka, Küme evleri No:162/C<br>06980 Kahramankazan / Ankara</p>
+          </div>
+        </div>
+        <div class="contact-item reveal reveal-delay-3">
+          <div class="contact-icon">🌐</div>
+          <div class="contact-detail">
+            <h5>Web Sitesi</h5>
+            <a href="http://www.solarcleaning.com.tr" target="_blank">www.solarcleaning.com.tr</a>
+          </div>
+        </div>
+
+        <div class="reveal reveal-delay-4" style="margin-top:8px;">
+          <p style="font-size:13px; color:var(--gray); margin-bottom:14px; letter-spacing:.06em; text-transform:uppercase; font-family:'Space Mono',monospace;">Bizi Takip Edin</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/solarcleaninges" target="_blank" class="social-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              Instagram
+            </a>
+            <a href="https://wa.me/905435921043" target="_blank" class="social-btn" style="border-color:rgba(37,211,102,.3); color:#25D366;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.553 4.116 1.524 5.84L0 24l6.336-1.507A11.951 11.951 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.96 0-3.8-.525-5.38-1.44l-.385-.23-3.994.95.967-3.885-.252-.4A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-wrap reveal reveal-delay-2">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3052.5323992904027!2d32.61766377592888!3d40.08584127149476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d333da706a6c4d%3A0x35ca11e6faee5046!2sSolar%20Cleaning%20G%C3%BCne%C5%9F%20Paneli%20Temizli%C4%9Fi!5e0!3m2!1str!2str!4v1775171030184!5m2!1str!2str"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Solar Cleaning Konum">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="http://www.solarcleaning.com.tr/images/logo.webp" alt="Solar Cleaning" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+    <span style="display:none; font-family:'Bebas Neue',sans-serif; font-size:18px; letter-spacing:.05em; color:#F5A623;">SOLAR CLEANING</span>
+  </div>
+  <p class="footer-copy">
+    © 2025 Solar Cleaning — Güneş Paneli Temizlik Hizmetleri<br>
+    <a href="http://www.solarcleaning.com.tr">www.solarcleaning.com.tr</a>
+  </p>
+  <div class="footer-links">
+    <a href="tel:05435921043">0543 592 10 43</a>
+    <a href="https://www.instagram.com/solarcleaninges" target="_blank">Instagram</a>
+    <a href="https://wa.me/905435921043" target="_blank">WhatsApp</a>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<div class="float-btns">
+  <a href="https://wa.me/905435921043" class="float-btn float-wa" target="_blank" title="WhatsApp ile İletişim">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.553 4.116 1.524 5.84L0 24l6.336-1.507A11.951 11.951 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.96 0-3.8-.525-5.38-1.44l-.385-.23-3.994.95.967-3.885-.252-.4A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+  </a>
+  <button class="float-btn float-search" id="searchBtn" title="Sitede Ara">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+  </button>
+</div>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-inner">
+    <label>Sitede Ara</label>
+    <div class="search-input-row">
+      <input type="text" id="searchInput" placeholder="Hotspot, temizlik sıklığı, fiyat...">
+      <button onclick="doSearch()">🔍</button>
+    </div>
+    <button class="search-close" id="searchClose">ESC — Kapat</button>
+  </div>
+</div>
+
+<script>
+  // Navbar scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        // Trigger perf bars
+        const fills = e.target.querySelectorAll('.perf-fill');
+        fills.forEach(f => {
+          setTimeout(() => { f.style.width = f.dataset.width + '%'; }, 200);
+        });
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => observer.observe(r));
+
+  // Also observe perf fills outside .reveal
+  document.querySelectorAll('.perf-fill').forEach(f => {
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { f.style.width = f.dataset.width + '%'; io.disconnect(); }
+    }, {threshold: 0.1});
+    io.observe(f);
+  });
+
+  // Search overlay
+  const searchBtn = document.getElementById('searchBtn');
+  const searchOverlay = document.getElementById('searchOverlay');
+  const searchClose = document.getElementById('searchClose');
+  const searchInput = document.getElementById('searchInput');
+
+  searchBtn.addEventListener('click', () => {
+    searchOverlay.classList.add('open');
+    setTimeout(() => searchInput.focus(), 100);
+  });
+  searchClose.addEventListener('click', () => searchOverlay.classList.remove('open'));
+  searchOverlay.addEventListener('click', (e) => {
+    if (e.target === searchOverlay) searchOverlay.classList.remove('open');
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') searchOverlay.classList.remove('open');
+  });
+
+  function doSearch() {
+    const q = searchInput.value.trim();
+    if (q) window.open(`https://www.google.com/search?q=site:solarcleaning.com.tr+${encodeURIComponent(q)}`, '_blank');
+  }
+  searchInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') doSearch(); });
+
+  // Smooth anchor scroll offset for fixed nav
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if (el) {
+        e.preventDefault();
+        const top = el.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
 </html>
