@@ -22,11 +22,11 @@
     --card-bg: rgba(13,32,69,0.7);
     --radius: 16px;
   }
-
+ 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
   html { scroll-behavior: smooth; }
-
+ 
   body {
     background: var(--sky);
     color: var(--white);
@@ -35,12 +35,12 @@
     overflow-x: hidden;
     cursor: default;
   }
-
+ 
   /* ─── SCROLLBAR ─── */
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: var(--sky); }
   ::-webkit-scrollbar-thumb { background: var(--sun); border-radius: 3px; }
-
+ 
   /* ─── NAV ─── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
@@ -90,10 +90,10 @@
   }
   .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(245,166,35,.4); }
   .nav-cta::after { display: none !important; }
-
+ 
   .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
   .hamburger span { display: block; width: 24px; height: 2px; background: var(--sun); border-radius: 2px; transition: .3s; }
-
+ 
   @media(max-width:768px) {
     .hamburger { display: flex; }
     .nav-links {
@@ -110,7 +110,7 @@
     .nav-links a { font-size: 15px; }
     .nav-cta { display: inline-block; max-width: 160px; text-align: center; }
   }
-
+ 
   /* ─── HERO ─── */
   .hero {
     position: relative; min-height: 100vh;
@@ -146,7 +146,7 @@
     0%,100% { transform: scale(1); opacity: .6; }
     50% { transform: scale(1.15); opacity: 1; }
   }
-
+ 
   .hero-content {
     position: relative; z-index: 2;
     text-align: center;
@@ -178,7 +178,7 @@
     animation: blink 1.5s infinite;
   }
   @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
-
+ 
   .hero h1 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(52px, 10vw, 130px);
@@ -234,7 +234,7 @@
     display: inline-block;
   }
   .btn-outline:hover { border-color: var(--sun); background: rgba(245,166,35,.08); transform: translateY(-3px); }
-
+ 
   /* Hero stats */
   .hero-stats {
     position: absolute; bottom: 48px; left: 0; right: 0; z-index: 2;
@@ -258,7 +258,7 @@
     margin-top: 4px;
   }
   .stat-divider { width: 1px; background: rgba(255,255,255,.1); }
-
+ 
   /* Scroll indicator */
   .scroll-hint {
     position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
@@ -267,12 +267,12 @@
   .scroll-hint span { font-size: 10px; letter-spacing: .15em; color: var(--gray); text-transform: uppercase; }
   .scroll-arrow { width: 20px; height: 20px; border-right: 2px solid var(--sun); border-bottom: 2px solid var(--sun); transform: rotate(45deg); animation: bounce .9s infinite alternate; }
   @keyframes bounce { from{transform:rotate(45deg) translateY(-4px)} to{transform:rotate(45deg) translateY(4px)} }
-
+ 
   /* ─── SECTIONS ─── */
   section { position: relative; }
   .container { max-width: 1200px; margin: 0 auto; padding: 0 clamp(16px,5vw,60px); }
   .section-pad { padding: clamp(64px,8vh,120px) 0; }
-
+ 
   .section-tag {
     font-family: 'Space Mono', monospace;
     font-size: 11px;
@@ -297,7 +297,7 @@
     color: rgba(240,244,255,.7);
     max-width: 680px;
   }
-
+ 
   /* ─── WHY SECTION ─── */
   .why-grid {
     display: grid;
@@ -307,7 +307,7 @@
     margin-top: 60px;
   }
   @media(max-width:768px) { .why-grid { grid-template-columns: 1fr; gap: 40px; } }
-
+ 
   .why-image-wrap {
     position: relative;
     border-radius: var(--radius);
@@ -338,7 +338,7 @@
     line-height: 1.5;
   }
   .why-image-badge strong { display: block; font-size: 22px; color: var(--accent2); }
-
+ 
   .why-list { list-style: none; margin-top: 28px; display: flex; flex-direction: column; gap: 16px; }
   .why-list li {
     display: flex; align-items: flex-start; gap: 14px;
@@ -358,10 +358,10 @@
   }
   .why-text h4 { font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
   .why-text p { font-size: 13px; color: var(--gray); line-height: 1.6; }
-
+ 
   /* ─── RAIN SECTION ─── */
   .rain-section { background: linear-gradient(180deg, var(--sky) 0%, var(--sky-mid) 100%); }
-
+ 
   .rain-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -389,7 +389,7 @@
   .rain-icon { font-size: 36px; margin-bottom: 14px; }
   .rain-card h4 { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
   .rain-card p { font-size: 13px; color: var(--gray); line-height: 1.65; }
-
+ 
   /* ─── HOTSPOT SECTION ─── */
   .hotspot-wrap {
     display: grid;
@@ -399,7 +399,7 @@
     margin-top: 60px;
   }
   @media(max-width:768px) { .hotspot-wrap { grid-template-columns: 1fr; gap: 40px; } }
-
+ 
   .hotspot-visual {
     position: relative;
     border-radius: var(--radius);
@@ -432,7 +432,7 @@
     70% { box-shadow: 0 0 0 30px rgba(255,80,50,0); }
     100% { box-shadow: 0 0 0 0 rgba(255,80,50,0); }
   }
-
+ 
   .hotspot-cards { display: flex; flex-direction: column; gap: 18px; }
   .hcard {
     background: var(--card-bg);
@@ -445,10 +445,10 @@
   .hcard:nth-child(3) { border-left-color: #FF5050; }
   .hcard h4 { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
   .hcard p { font-size: 13px; color: var(--gray); line-height: 1.6; }
-
+ 
   /* ─── FREQUENCY SECTION ─── */
   .freq-section { background: linear-gradient(135deg, rgba(13,32,69,.8) 0%, rgba(10,22,40,1) 100%); }
-
+ 
   .freq-timeline {
     position: relative;
     margin: 60px 0 0;
@@ -482,7 +482,7 @@
   .timeline-content { padding-top: 12px; }
   .timeline-content h4 { font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
   .timeline-content p { font-size: 14px; color: var(--gray); line-height: 1.7; }
-
+ 
   .freq-factors {
     margin-top: 60px;
     display: grid;
@@ -501,7 +501,7 @@
   .factor-icon { font-size: 42px; margin-bottom: 12px; }
   .factor-card h5 { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
   .factor-card p { font-size: 12px; color: var(--gray); line-height: 1.6; }
-
+ 
   /* ─── CTA SECTION ─── */
   .cta-section {
     background: linear-gradient(135deg, var(--sky-mid) 0%, var(--sky) 100%);
@@ -518,10 +518,10 @@
     padding: clamp(64px,8vh,120px) 0;
   }
   .cta-inner .section-title { font-size: clamp(42px,6vw,80px); }
-
+ 
   /* ─── CONTACT SECTION ─── */
   .contact-section { background: var(--sky-mid); }
-
+ 
   .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -529,7 +529,7 @@
     margin-top: 52px;
   }
   @media(max-width:768px) { .contact-grid { grid-template-columns: 1fr; } }
-
+ 
   .contact-info { display: flex; flex-direction: column; gap: 24px; }
   .contact-item {
     display: flex; align-items: flex-start; gap: 16px;
@@ -545,7 +545,7 @@
   .contact-detail h5 { font-size: 13px; font-weight: 700; color: var(--sun); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 4px; }
   .contact-detail p, .contact-detail a { font-size: 15px; color: var(--white); text-decoration: none; line-height: 1.6; transition: color .25s; }
   .contact-detail a:hover { color: var(--sun); }
-
+ 
   .social-links { display: flex; gap: 12px; margin-top: 24px; }
   .social-btn {
     display: flex; align-items: center; gap: 8px;
@@ -560,7 +560,7 @@
     transition: background .25s, border-color .25s, transform .25s;
   }
   .social-btn:hover { background: rgba(245,166,35,.2); border-color: var(--sun); transform: translateY(-3px); }
-
+ 
   .map-wrap {
     border-radius: var(--radius);
     overflow: hidden;
@@ -568,7 +568,7 @@
     height: 350px;
   }
   .map-wrap iframe { width: 100%; height: 100%; border: 0; filter: invert(.9) hue-rotate(180deg) saturate(.8); }
-
+ 
   /* ─── FOOTER ─── */
   footer {
     background: #060E1C;
@@ -586,7 +586,7 @@
   .footer-links { display: flex; gap: 20px; }
   .footer-links a { font-size: 12px; color: var(--gray); text-decoration: none; transition: color .25s; }
   .footer-links a:hover { color: var(--white); }
-
+ 
   /* ─── FLOATING BUTTONS ─── */
   .float-btns {
     position: fixed;
@@ -616,7 +616,7 @@
     background: linear-gradient(135deg, var(--sun), #E8920A);
   }
   .float-search:hover { box-shadow: 0 8px 32px rgba(245,166,35,.5); }
-
+ 
   /* Search overlay */
   .search-overlay {
     position: fixed; inset: 0; z-index: 2000;
@@ -667,7 +667,7 @@
     background: none; border: none; color: var(--gray); font-family: 'Space Mono', monospace;
   }
   .search-close:hover { color: var(--white); }
-
+ 
   /* ─── DIVIDER ─── */
   .divider {
     width: 60px; height: 3px;
@@ -675,7 +675,7 @@
     border-radius: 2px;
     margin: 20px 0 36px;
   }
-
+ 
   /* ─── REVEAL ANIMATION ─── */
   .reveal {
     opacity: 0;
@@ -687,7 +687,7 @@
   .reveal-delay-2 { transition-delay: .2s; }
   .reveal-delay-3 { transition-delay: .3s; }
   .reveal-delay-4 { transition-delay: .4s; }
-
+ 
   /* ─── PERFORMANCE BAR ─── */
   .perf-bar-wrap { margin-top: 48px; }
   .perf-row { margin-bottom: 20px; }
@@ -707,7 +707,7 @@
     width: 0;
     transition: width 1.4s cubic-bezier(.22,1,.36,1);
   }
-
+ 
   /* ─── GUARANTEE CHIPS ─── */
   .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
   .chip {
@@ -720,7 +720,7 @@
     color: var(--accent2);
     letter-spacing: .05em;
   }
-
+ 
   @media (max-width: 480px) {
     .hero-stats { gap: 20px; }
     .stat-divider { display: none; }
@@ -729,7 +729,7 @@
 </style>
 </head>
 <body>
-
+ 
 <!-- NAV -->
 <nav id="navbar">
   <a href="#" class="nav-logo">
@@ -748,7 +748,7 @@
     <li><a href="https://wa.me/905435921043" class="nav-cta" target="_blank">Teklif Al</a></li>
   </ul>
 </nav>
-
+ 
 <!-- HERO -->
 <section class="hero">
   <video class="hero-video" autoplay muted loop playsinline>
@@ -756,7 +756,7 @@
   </video>
   <div class="hero-overlay"></div>
   <div class="sun-rays"></div>
-
+ 
   <div class="hero-content">
     <div class="hero-badge">Profesyonel Robotik Temizlik</div>
     <h1>
@@ -772,7 +772,7 @@
       <a href="#neden" class="btn-outline">Neden Solar Cleaning?</a>
     </div>
   </div>
-
+ 
   <div class="hero-stats">
     <div class="stat">
       <div class="stat-num">%25</div>
@@ -790,7 +790,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- NEDEN TEMİZLİK -->
 <section class="section-pad" id="neden">
   <div class="container">
@@ -802,7 +802,7 @@
         <p class="section-body">
           Toz, kir, kuş pisliği ve hava kirleticileri güneş panellerinin yüzeyinde birikir ve güneş ışığının panel hücrelerine ulaşmasını engeller. Bu da doğrudan enerji üretim kaybına yol açar. Profesyonel robotik temizlik sayesinde panelleriniz fabrika performansına geri döner.
         </p>
-
+ 
         <div class="perf-bar-wrap reveal reveal-delay-2">
           <div class="perf-row">
             <div class="perf-row-head"><strong>Temizlenmiş Panel Verimi</strong><span>%100</span></div>
@@ -817,7 +817,7 @@
             <div class="perf-track"><div class="perf-fill" data-width="75" style="background: linear-gradient(90deg, #FF6B35, #FF9A5C);"></div></div>
           </div>
         </div>
-
+ 
         <div class="chips">
           <span class="chip">✓ Sertifikalı Ekip</span>
           <span class="chip">✓ Sigortalı Hizmet</span>
@@ -825,7 +825,7 @@
           <span class="chip">✓ Hızlı Servis</span>
         </div>
       </div>
-
+ 
       <div class="why-image-wrap reveal reveal-delay-2">
         <img src="http://www.solarcleaning.com.tr/images/solar-cleaning.webp" alt="Güneş Paneli Robotik Temizlik" loading="lazy">
         <div class="why-image-badge">
@@ -836,7 +836,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- YAĞMUR BÖLÜMÜ -->
 <section class="section-pad rain-section" id="yagmur">
   <div class="container">
@@ -848,7 +848,7 @@
         Doğal temizlik sandığınız şey, aslında sessiz bir verim kaybına yol açıyor olabilir. Yağmur, görünürde paneli ıslatsa da gerçek temizliği sağlamaktan çok uzaktır.
       </p>
     </div>
-
+ 
     <div class="rain-grid">
       <div class="rain-card reveal reveal-delay-1">
         <div class="rain-icon">💧</div>
@@ -882,7 +882,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- HOTSPOT -->
 <section class="section-pad" id="hotspot">
   <div class="container">
@@ -891,13 +891,13 @@
       <h2 class="section-title">Hotspot <em>Nedir?</em></h2>
       <div class="divider"></div>
     </div>
-
+ 
     <div class="hotspot-wrap">
       <div class="reveal">
         <p class="section-body" style="margin-bottom: 24px;">
           Hotspot, bir güneş panelinin belirli bir bölgesinin aşırı ısınması sonucu oluşan tehlikeli bir durumdur. Kir, gölge veya hasar nedeniyle bazı hücreler elektrik üretemez hale gelir ve ürettikleri elektriği tüketen yük haline dönüşürler.
         </p>
-
+ 
         <div class="hcard reveal reveal-delay-1">
           <h4>🔥 Hotspot Nasıl Oluşur?</h4>
           <p>Panel üzerindeki kir, yaprak, kuş pisliği veya gölge; bir veya birkaç hücrenin güneş ışığı almasını engeller. Bu hücreler, devre dışı kalmak yerine diğer hücrelerin ürettiği enerjiyi ısıya dönüştürerek tüketmeye başlar.</p>
@@ -911,7 +911,7 @@
           <p>Hotspot oluşumunun en temel nedeni, panel yüzeyindeki birikmelerdir. Düzenli robotik temizlik ile bu riskten tamamen korunabilirsiniz. Panel ömrünüzü uzatır, yatırımınızı korursunuz.</p>
         </div>
       </div>
-
+ 
       <div class="hotspot-visual reveal reveal-delay-2">
         <img src="http://www.solarcleaning.com.tr/images/solar-cleaning2.webp" alt="Hotspot Güneş Paneli" loading="lazy">
         <div class="hotspot-label">
@@ -921,7 +921,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- SIKLIK -->
 <section class="section-pad freq-section" id="siklık">
   <div class="container">
@@ -933,7 +933,7 @@
         Temizlik sıklığı; coğrafi konum, panel eğimi, çevresel faktörler ve mevsime göre değişir. Ancak genel kural olarak her 3 ayda bir profesyonel temizlik önerilmektedir.
       </p>
     </div>
-
+ 
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:60px; margin-top:60px; align-items:start;">
       <div>
         <h3 class="reveal" style="font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--sun); letter-spacing:.05em; margin-bottom:28px;">Neden En Az 3 Ayda Bir Temizlik?</h3>
@@ -961,7 +961,7 @@
           </div>
         </div>
       </div>
-
+ 
       <div>
         <h3 class="reveal" style="font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--sun); letter-spacing:.05em; margin-bottom:28px;">Sıklığı Etkileyen Faktörler</h3>
         <div class="freq-factors" style="grid-template-columns: 1fr 1fr;">
@@ -991,13 +991,13 @@
         </div>
       </div>
     </div>
-
+ 
     @media(max-width:768px) {
       .section-freq-inner { grid-template-columns: 1fr !important; }
     }
   </div>
 </section>
-
+ 
 <!-- CTA -->
 <section class="cta-section">
   <div class="container">
@@ -1014,7 +1014,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- İLETİŞİM -->
 <section class="section-pad contact-section" id="iletisim">
   <div class="container">
@@ -1023,7 +1023,7 @@
       <h2 class="section-title">İletişim & <em>Konum</em></h2>
       <div class="divider"></div>
     </div>
-
+ 
     <div class="contact-grid">
       <div class="contact-info">
         <div class="contact-item reveal reveal-delay-1">
@@ -1047,7 +1047,7 @@
             <a href="http://www.solarcleaning.com.tr" target="_blank">www.solarcleaning.com.tr</a>
           </div>
         </div>
-
+ 
         <div class="reveal reveal-delay-4" style="margin-top:8px;">
           <p style="font-size:13px; color:var(--gray); margin-bottom:14px; letter-spacing:.06em; text-transform:uppercase; font-family:'Space Mono',monospace;">Bizi Takip Edin</p>
           <div class="social-links">
@@ -1062,7 +1062,7 @@
           </div>
         </div>
       </div>
-
+ 
       <div class="map-wrap reveal reveal-delay-2">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3052.5323992904027!2d32.61766377592888!3d40.08584127149476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d333da706a6c4d%3A0x35ca11e6faee5046!2sSolar%20Cleaning%20G%C3%BCne%C5%9F%20Paneli%20Temizli%C4%9Fi!5e0!3m2!1str!2str!4v1775171030184!5m2!1str!2str"
@@ -1073,7 +1073,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">
@@ -1090,7 +1090,7 @@
     <a href="https://wa.me/905435921043" target="_blank">WhatsApp</a>
   </div>
 </footer>
-
+ 
 <!-- FLOATING BUTTONS -->
 <div class="float-btns">
   <a href="https://wa.me/905435921043" class="float-btn float-wa" target="_blank" title="WhatsApp ile İletişim">
@@ -1100,7 +1100,7 @@
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
   </button>
 </div>
-
+ 
 <!-- SEARCH OVERLAY -->
 <div class="search-overlay" id="searchOverlay">
   <div class="search-inner">
@@ -1112,14 +1112,14 @@
     <button class="search-close" id="searchClose">ESC — Kapat</button>
   </div>
 </div>
-
+ 
 <script>
   // Navbar scroll
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 60);
   });
-
+ 
   // Hamburger
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
@@ -1129,7 +1129,7 @@
   navLinks.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => navLinks.classList.remove('open'));
   });
-
+ 
   // Reveal on scroll
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
@@ -1145,7 +1145,7 @@
     });
   }, { threshold: 0.12 });
   reveals.forEach(r => observer.observe(r));
-
+ 
   // Also observe perf fills outside .reveal
   document.querySelectorAll('.perf-fill').forEach(f => {
     const io = new IntersectionObserver(([e]) => {
@@ -1153,13 +1153,13 @@
     }, {threshold: 0.1});
     io.observe(f);
   });
-
+ 
   // Search overlay
   const searchBtn = document.getElementById('searchBtn');
   const searchOverlay = document.getElementById('searchOverlay');
   const searchClose = document.getElementById('searchClose');
   const searchInput = document.getElementById('searchInput');
-
+ 
   searchBtn.addEventListener('click', () => {
     searchOverlay.classList.add('open');
     setTimeout(() => searchInput.focus(), 100);
@@ -1171,13 +1171,13 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') searchOverlay.classList.remove('open');
   });
-
+ 
   function doSearch() {
     const q = searchInput.value.trim();
     if (q) window.open(`https://www.google.com/search?q=site:solarcleaning.com.tr+${encodeURIComponent(q)}`, '_blank');
   }
   searchInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') doSearch(); });
-
+ 
   // Smooth anchor scroll offset for fixed nav
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', (e) => {
