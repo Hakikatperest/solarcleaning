@@ -145,6 +145,35 @@
   .hero-content {
   padding-bottom: 60px;
 }
+  /* PARLAK METAL EFEKTİ */
+.rain-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.25),
+    transparent
+  );
+  transition: 0.6s;
+}
+
+.rain-card:hover::after {
+  left: 120%;
+}
+  .rain-card h4 {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+.rain-card p {
+  opacity: 0.85;
+}
 
 .hero-stats {
   transform: translateY(50%);
