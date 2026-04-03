@@ -178,7 +178,53 @@
 .hero-stats {
   transform: translateY(50%);
 }
+.rain-card {
+  border-radius: 18px;
+  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: all .35s ease;
+  color: #fff;
+}
 
+/* METALİK KARTLAR */
+.rain-card-1 { background: linear-gradient(135deg, #2c2f33, #4b4f54); }
+.rain-card-2 { background: linear-gradient(135deg, #3b0d0d, #7f1d1d); }
+.rain-card-3 { background: linear-gradient(135deg, #1e1b2e, #4c1d95); }
+.rain-card-4 { background: linear-gradient(135deg, #0f2f2f, #134e4a); }
+.rain-card-5 { background: linear-gradient(135deg, #3a2e05, #f59e0b); }
+
+/* HOVER */
+.rain-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+/* PARLAKLIK EFEKTİ */
+.rain-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.25), transparent);
+  transition: 0.6s;
+}
+
+.rain-card:hover::after {
+  left: 120%;
+}
+
+/* TEXT */
+.rain-card h4 {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.rain-card p {
+  opacity: 0.85;
+}
   /* SHARED */
   section { position: relative; }
   .container { max-width: 1180px; margin: 0 auto; padding: 0 clamp(16px,5vw,60px); }
